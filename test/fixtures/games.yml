@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  city: MyText
+  stadium: MyText
+  group: MyText
+  team1: MyText
+  team2: MyText
+
+two:
+  city: MyText
+  stadium: MyText
+  group: MyText
+  team1: MyText
+  team2: MyText
