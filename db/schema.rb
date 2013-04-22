@@ -11,14 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415230621) do
+ActiveRecord::Schema.define(:version => 20130422022529) do
 
   create_table "games", :force => true do |t|
-    t.text "city"
-    t.text "stadium"
-    t.text "group"
-    t.text "team1"
-    t.text "team2"
+    t.datetime "date_and_time"
   end
 
 end
