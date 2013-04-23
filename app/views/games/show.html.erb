@@ -1,28 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Date/Time:</b>
+  <%= @game.date_and_time %>
+</p>
+
+<p>
   <b>City:</b>
-  <%= @game.city %>
-</p>
-
-<p>
-  <b>Stadium:</b>
-  <%= @game.stadium %>
-</p>
-
-<p>
-  <b>Group:</b>
-  <%= @game.group %>
+  <%= @game.city.city %>
 </p>
 
 <p>
   <b>Team1:</b>
-  <%= @game.team1 %>
+  <%= @game.team1.team %>
 </p>
 
 <p>
   <b>Team2:</b>
-  <%= @game.team2 %>
+  <%= @game.team2.team %>
+</p>
+
+<p>
+  <b>Score_Team1:</b>
+  <%= @game.score_team1 %>
+</p>
+
+<p>
+  <b>Score_Team2:</b>
+  <%= @game.score_team2 %>
+</p>
+
+<p>
+  <b>Stage:</b>
+  <%= @game.stage.stage %>
 </p>
 
 

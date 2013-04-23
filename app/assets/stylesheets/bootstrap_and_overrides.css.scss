@@ -4,3 +4,14 @@
 body {
   padding-top: 60px;
 }
+
+.navbar .brand {
+  margin-left: 0px; // change to auto to center brand
+  margin-right: 18px; // change to auto to center brand
+  width: 30px;
+  float: left; // change to none to center brand
+  &:hover {
+    color: #000;
+    background-color: rgba(0,0,0,0);
+  }
+}

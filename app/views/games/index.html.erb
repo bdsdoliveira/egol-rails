@@ -22,12 +22,12 @@
 <% @games.each do |game| %>
   <tr>
     <td><%= game.date_and_time %></td>
-    <td><%= game.score1 %></td>
-    <td><%= game.score2 %></td>
-    <td><%= game.city %></td>
-    <td><%= game.team1 %></td>
-    <td><%= game.team2 %></td>
-    <td><%= game.stage %></td>
+    <td><%= game.score_team1 %></td>
+    <td><%= game.score_team2 %></td>
+    <td><%= game.city.city %></td>
+    <td><%= game.team1.team %></td>
+    <td><%= game.team2.team %></td>
+    <td><%= game.stage.stage %></td>
     <td><%= link_to 'Show', game, class: "btn btn-small" %>
         <%= link_to 'Edit', edit_game_path(game), class: "btn btn-small" %>
         <%= link_to 'Destroy', game, class: "btn btn-small", method: :delete, data: { confirm: 'Are you sure?' } %></td>
