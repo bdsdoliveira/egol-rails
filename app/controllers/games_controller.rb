@@ -6,18 +6,20 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @games }
+      #format.json { render json: @games }
     end
   end
 
   # GET /m
   def m
     @games = Game.all.each do |game|
+      game['city_'] = game.city.city
+      game['stage_'] = game.stage.stage
+      game['team_1'] = game.team1.team
+      game['team_2'] = game.team2.team
       game['stadium'] = game.city.stadium
       game['latitude'] = game.city.latitude
       game['longitude'] = game.city.longitude
-      game['score_team1'] = game.score_team1
-      game['score_team2'] = game.score_team2
     end
 
     render json: @games
@@ -30,7 +32,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @game }
+      #format.json { render json: @game }
     end
   end
 
@@ -41,7 +43,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @game }
+      #format.json { render json: @game }
     end
   end
 
@@ -58,10 +60,10 @@ class GamesController < ApplicationController
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render json: @game, status: :created, location: @game }
+        #format.json { render json: @game, status: :created, location: @game }
       else
         format.html { render action: "new" }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+        #format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,10 +76,10 @@ class GamesController < ApplicationController
     respond_to do |format|
       if @game.update_attributes(params[:game])
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { head :no_content }
+        #format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+        #format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -90,7 +92,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to games_url }
-      format.json { head :no_content }
+      #format.json { head :no_content }
     end
   end
 end
