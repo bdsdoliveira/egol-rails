@@ -1,4 +1,13 @@
 EhGol::Application.routes.draw do
+  resources :stages
+
+
+  resources :teams
+
+
+  resources :cities
+
+
   resources :games
 
 

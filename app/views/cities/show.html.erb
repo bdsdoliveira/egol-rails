@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>City:</b>
+  <%= @city.city %>
+</p>
+
+<p>
+  <b>Stadium:</b>
+  <%= @city.stadium %>
+</p>
+
+<p>
+  <b>Stadium alternative:</b>
+  <%= @city.stadium_alternative %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @city.address %>
+</p>
+
+<p>
+  <b>Timezone:</b>
+  <%= @city.timezone %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @city.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @city.longitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

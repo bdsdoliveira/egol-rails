@@ -12,16 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :date_and_time %><br />
+    <%= f.text_area :date_and_time %>
+  </div>
+  <div class="field">
     <%= f.label :city %><br />
     <%= f.text_area :city %>
-  </div>
-  <div class="field">
-    <%= f.label :stadium %><br />
-    <%= f.text_area :stadium %>
-  </div>
-  <div class="field">
-    <%= f.label :group %><br />
-    <%= f.text_area :group %>
   </div>
   <div class="field">
     <%= f.label :team1 %><br />
@@ -30,6 +26,18 @@
   <div class="field">
     <%= f.label :team2 %><br />
     <%= f.text_area :team2 %>
+  </div>
+  <div class="field">
+    <%= f.label :score_team1 %><br />
+    <%= f.text_area :score_team1 %>
+  </div>
+  <div class="field">
+    <%= f.label :score_team2 %><br />
+    <%= f.text_area :score_team2 %>
+  </div>
+  <div class="field" id="fat-menu" class="dropdown" >
+    <%= f.label :stage %><br />
+    <%= f.text_area :stage %>
   </div>
   <div class="actions">
     <%= f.submit %>

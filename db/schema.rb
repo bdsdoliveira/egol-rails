@@ -11,10 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422022529) do
+ActiveRecord::Schema.define(:version => 20130423022030) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "city"
+    t.string   "stadium"
+    t.string   "stadium_alternative"
+    t.string   "address"
+    t.string   "timezone"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "games", :force => true do |t|
     t.datetime "date_and_time"
+    t.integer  "city_id"
+    t.integer  "stage_id"
+    t.integer  "team1_id"
+    t.integer  "team2_id"
+    t.integer  "score_team1"
+    t.integer  "score_team2"
+  end
+
+  create_table "stages", :force => true do |t|
+    t.string   "stage"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "teams", :force => true do |t|
+    t.string   "team"
+    t.string   "team_code"
+    t.string   "group"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
