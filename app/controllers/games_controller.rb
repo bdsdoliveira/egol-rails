@@ -10,6 +10,19 @@ class GamesController < ApplicationController
     end
   end
 
+  # GET /m
+  def m
+    @games = Game.all.each do |game|
+      game['stadium'] = game.city.stadium
+      game['latitude'] = game.city.latitude
+      game['longitude'] = game.city.longitude
+      game['score_team1'] = game.score_team1
+      game['score_team2'] = game.score_team2
+    end
+
+    render json: @games
+  end
+
   # GET /games/1
   # GET /games/1.json
   def show

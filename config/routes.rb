@@ -10,6 +10,9 @@ EhGol::Application.routes.draw do
 
   resources :games
 
+  # Mobile access to list of games
+  match '/m' => 'games#m'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
