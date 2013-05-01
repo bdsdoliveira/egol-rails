@@ -1,8 +1,16 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+// Fix for navbar
 body {
   padding-top: 60px;
+}
+
+// Fix for navbar (responsive)
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
 }
 
 .navbar .brand {
