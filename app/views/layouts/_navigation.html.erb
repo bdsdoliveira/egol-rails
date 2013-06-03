@@ -1,25 +1,9 @@
-<%= link_to "Home", root_path, :class => 'brand' %>
+<%= link_to image_tag('ic_launcher.png'), root_path, :class => 'brand' %>
 
 <ul class="nav">
-
-  <li>
-    <%= link_to "Games", games_path, :class => 'item' %>
-  </li>
-
-  <li>
-    <%= link_to "Cities", cities_path, :class => 'item' %>
-  </li>
-
-  <li>
-    <%= link_to "Teams", teams_path, :class => 'item' %>
-  </li>
-
-  <li>
-    <%= link_to "Stages", stages_path, :class => 'item' %>
-  </li>
-
-  <li>
-    <%= link_to "/m", m_path, :class => 'item' %>
-  </li>
-
+  <li><%= link_to "Games",  games_path,  :class => 'item' %></li>
+  <li><%= link_to "Cities", cities_path, :class => 'item' %></li>
+  <li><%= link_to "Teams",  teams_path,  :class => 'item' %></li>
+  <li><%= link_to "Stages", stages_path, :class => 'item' %></li>
+  <li><%= link_to "/m",     m_path,      :class => 'item' %></li>
 </ul>

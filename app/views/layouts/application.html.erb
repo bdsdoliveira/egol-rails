@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <header class="navbar navbar-fixed-top">
+  <header class="navbar navbar-fixed-top navbar-inverse">
     <nav class="navbar-inner">
       <div class="container">
         <%= render 'layouts/navigation' %>
@@ -23,13 +23,16 @@
 
   <div id="main" role="main">
     <div class="container">
-      <div class="content">
+      <div id="main-content">
         <%= yield %>
-        <footer>
-        </footer>
       </div>
-    </div> <!--! end of .container -->
-  </div> <!--! end of #main -->
+      <div id="game-content">
+      </div>
+      <footer>
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
+  </div>
 
 </body>
 </html>

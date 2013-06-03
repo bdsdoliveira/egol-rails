@@ -3,7 +3,8 @@
 
 // Fix for navbar
 body {
-  padding-top: 60px;
+  background-color: rgba(254,243,243,0.953);
+  padding-top: 80px;
 }
 
 // Fix for navbar (responsive)
@@ -13,13 +14,85 @@ body {
   }
 }
 
-.navbar .brand {
-  margin-left: 0px; // change to auto to center brand
-  margin-right: 18px; // change to auto to center brand
-  width: 30px;
-  float: left; // change to none to center brand
-  &:hover {
-    color: #000;
-    background-color: rgba(0,0,0,0);
+.navbar {
+  .navbar-inner {
+    vertical-align: middle;
+    .container {
+      .brand {
+        padding: 0;
+        float: left; // change to none to center brand
+        img {
+          max-height: 60px;
+          height: auto;
+        }
+      }
+      .navigation li {
+          display: inline-block;
+      }
+    }
   }
+}
+
+#main-content {
+  display: inline-block;
+  width: 33%;
+}
+#game-content {
+  display: inline-block;
+  width: 34%;
+}
+
+.game_box {
+  background-color: #fff;
+  padding: 30px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  .game_teams {
+    font-size: 32px;
+    color: #777;
+    text-align: center;
+    .team1 {
+      float: left;
+      width: 46%;
+    }
+    .team2 {
+      float: right;
+      width: 46%;
+    }
+  }
+
+  .game_details {
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 20px;
+    color: #999;
+  }
+
+  .game_extras {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    .share_button {
+      float: left;
+      margin-right: 8px;
+      max-width: 10%;
+    }
+    .game_button {
+      float: right;
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 10%;
+    }
+  }
+}
+
+.game_content_box {
+  background-color: #fff;
+  padding: 30px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }

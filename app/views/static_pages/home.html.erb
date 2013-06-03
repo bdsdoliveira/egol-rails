@@ -1,0 +1,25 @@
+
+<div class="games">
+  <% @games.each do |game| %>
+    <div class="content game_box">
+      <span class="game_teams">
+        <span class="team1"><%= game.team1.team %></span>
+        <span>×</span>
+        <span class="team2"><%= game.team2.team %></span>
+      </span>
+      <div class="game_details">
+        <p>Data: <%= game.date_and_time %></p>
+        <p>Cidade: <%= game.city.city %></p>
+        <p>Local: <%= game.stage.stage %></p>
+      </div>
+      <hr>
+      <div class="game_extras">
+        <%= link_to image_tag('twitter.png', :class => "share_button"), "#" %>
+        <%= link_to image_tag('facebook.png', :class => "share_button"), "#"  %>
+        <%= link_to image_tag('gplus.png', :class => "share_button"), "#"  %>
+        <%= link_to image_tag('expander.png', :class => "game_button"), "#" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
