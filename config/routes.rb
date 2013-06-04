@@ -1,24 +1,20 @@
 EhGol::Application.routes.draw do
-  get "users/new"
-
   get "static_pages/home"
-
   get "static_pages/help"
-
   get "static_pages/about"
 
   resources :stages
-
   resources :teams
-
   resources :cities
-
   resources :games
+  resources :users
+
+  match '/signup', to: "users#new"
 
   # Mobile access to list of games
-  match '/m' => 'games#m'
+  match '/m', to: 'games#m'
 
-  root :to => 'static_pages#home'
+  root to: 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
