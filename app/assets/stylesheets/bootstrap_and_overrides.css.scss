@@ -1,10 +1,8 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-// Fix for navbar
 body {
   background-color: rgba(243,243,243,0.998);
-  padding-top: 80px;
 }
 
 // Fix for navbar (responsive)
@@ -14,41 +12,126 @@ body {
   }
 }
 
-.topbar {
-  width: 100%;
+* {
+  -webkit-border-radius: 1px !important;
+  -moz-border-radius: 1px !important;
+  border-radius: 1px !important;
+}
+
+#logo {
   background-color: #333333;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
   display: table;
   vertical-align: middle;
-  text-align: left;
-  margin: 0;
-  padding: 0;
   .brand {
-    padding: 0;
-    img {
-      margin-left: 80px;
-      max-height: 60px;
-      height: auto;
-    }
+    margin-left: 80px;
   }
-  .navigation {
+  .btn-group {
+    text-align: right;
     display: table-cell;
-    li {
-      display: inline;
+    padding-right: 80px;
+    .dropdown-toggle {
+      font-size: 16px;
+    }
+    .dropdown-menu {
+      text-align: center;
+      margin-top: 0;
+      margin-right: 80px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 14px;
+      padding-bottom: 0;
+      .nav-header {
+        padding: 0;
+      }
+      form {
+        margin-bottom: 14px;
+        .sign-up {
+          font-style: italic;
+          color: #999;
+          margin-bottom: 12px
+        }
+      }
+      .btn {
+        width: 100%;
+      }
     }
   }
+  .navbar {
+    vertical-align: middle;
+    display: table-cell;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.page-title {
+  line-height: 54px;
+  font-size: 36px;
+  .alert {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 20px;
+    padding-top: 4px;
+    padding-bottom: 16px;
+    a {
+      font-weight: bold;
+      float: right;
+      color: inherit;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    ul {
+      margin-top: 8px;
+      list-style-type: square;
+    }
+  }
+  .alert-error {
+    padding-bottom: 8px;
+  }
+}
+
+.media {
+  .media-object img {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+  }
+  .media-body .nav-header {
+    &:first-child {
+      margin-top: 0px;
+    }
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 2px;
+  }
+  h4 {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+}
+
+textarea {
+  height: 200px;
 }
 
 .white-box {
   background-color: #fff;
 }
 
-.game_box {
+.game-box {
   padding: 30px;
   padding-bottom: 15px;
   margin-bottom: 20px;
   margin-top: 20px;
 
-  .game_teams {
+  .game-teams {
     font-size: 32px;
     color: #777;
     text-align: center;
@@ -62,29 +145,46 @@ body {
     }
   }
 
-  .game_details {
+  .game-details {
     font-size: 12px;
     line-height: 12px;
     margin-top: 20px;
     color: #999;
   }
 
-  .game_extras {
+  .game-extras {
     display: inline-block;
     width: 100%;
     padding: 0;
     margin: 0;
-    .share_button {
+    .share-button {
       float: left;
       margin-right: 8px;
       max-width: 10%;
     }
-    .game_button {
+    .game-button {
       float: right;
       display: inline-block;
       vertical-align: middle;
       max-width: 10%;
     }
   }
+}
+
+.welcome-title {
+  font-size: 48px;
+  color: #777;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-style: italic;
+}
+
+.welcome-content {
+  padding: 20px;
+  line-height: 36px;
+  font-size: 20px;
+  color: #777;
+  text-align: left;
 }
 

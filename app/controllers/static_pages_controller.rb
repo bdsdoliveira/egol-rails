@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
     @games = Game.all
+
+    @details = nil
   end
 
   def help

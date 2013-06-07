@@ -1,13 +1,37 @@
 
-<div class="topbar content navbar-fixed-top">
-  <%= link_to image_tag('ic_launcher.png'), root_path, :class => 'brand' %>
-  <div class="navigation">
-    <ul>
-      <li><%= link_to "Games",  games_path,  :class => 'item' %></li>
-      <li><%= link_to "Cities", cities_path, :class => 'item' %></li>
-      <li><%= link_to "Teams",  teams_path,  :class => 'item' %></li>
-      <li><%= link_to "Stages", stages_path, :class => 'item' %></li>
-      <li><%= link_to "/m",     m_path,      :class => 'item' %></li>
+<div id="logo" class="container">
+  <%= link_to image_tag('ic_launcher.png'), root_path, :class => "brand" %>
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li><%= link_to "Games",  games_path,  :class => 'item' %></li>
+        <li><%= link_to "Cities", cities_path, :class => 'item' %></li>
+        <li><%= link_to "Teams",  teams_path,  :class => 'item' %></li>
+        <li><%= link_to "Stages", stages_path, :class => 'item' %></li>
+        <li><%= link_to "Users",  users_path,  :class => 'item' %></li>
+        <li><%= link_to "/m",     m_path,      :class => 'item' %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="btn-group dropdown">
+    <a href="" class="btn btn-inverse btn-large dropdown-toggle" data-toggle="dropdown">
+      Login
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu pull-right">
+      <form>
+        <li><input type="text" class="input-large" placeholder="Email"></li>
+        <li><input type="password" class="input-large" placeholder="Password"></li>
+        <li>
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </li>
+        <li class="divider"></li>
+        <li class="sign-up">Sign up now!</li>
+        <li>
+          <%= link_to '<button type="button" class="btn btn-success">Sign up</button>'.html_safe, signup_path %>
+        </li>
+      </form>
     </ul>
   </div>
 </div>
+
