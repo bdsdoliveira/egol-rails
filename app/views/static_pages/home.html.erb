@@ -19,7 +19,7 @@
             <%= link_to image_tag('twitter.png', :class => "share-button"), "#" %>
             <%= link_to image_tag('facebook.png', :class => "share-button"), "#"  %>
             <%= link_to image_tag('gplus.png', :class => "share-button"), "#"  %>
-            <%= link_to image_tag('expander.png', :class => "game-button"), "#" %>
+            <%= link_to image_tag('expander.png', :class => "game-button"), action: "details", id: game.id, remote: true %>
           </div>
         </div>
       <% end %>
@@ -27,7 +27,16 @@
   </div>
   <div class="span7 offset1">
     <div class="content white-box game-box">
-      <%= render :partial => 'details', :locals => { :details => Game.find(1) } %>
+      <div id="details">
+        <div class="welcome-title">
+          Welcome to É Gol!
+        </div>
+        <div class="welcome-content">
+          Here you'll be able to get through the World Cup knowing when, where,
+          how and what is happening, so you easily manage and share the biggest
+          matches ...
+        </div>
+      </div>
     </div>
   </div>
 </div>

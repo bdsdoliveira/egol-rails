@@ -3,6 +3,8 @@ EhGol::Application.routes.draw do
   get "static_pages/help"
   get "static_pages/about"
 
+  match 'details', to: "static_pages#details"
+
   resources :stages
   resources :teams
   resources :cities

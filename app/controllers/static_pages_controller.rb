@@ -1,8 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
     @games = Game.all
+  end
 
-    @details = nil
+  def details
+    @game = Game.find(params[:id])
   end
 
   def help

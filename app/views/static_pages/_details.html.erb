@@ -1,22 +1,15 @@
 
-<% if details.nil? %>
-  <div class="welcome-title">
-    Welcome to É Gol!
-  </div>
-  <div class="welcome-content">
-    Here you'll be able to get through the World Cup knowing when, where, how and what is happening, so you easily manage and share the biggest matches ...
-  </div>
-<% else %>
+<div id="details">
   <div class="game-box">
     <span class="game-teams">
-      <span class="team1"><%= details.team1.team %></span>
+      <span class="team1"><%= @game.team1.team %></span>
       <span>×</span>
-      <span class="team2"><%= details.team2.team %></span>
+      <span class="team2"><%= @game.team2.team %></span>
     </span>
     <div class="game-details">
-      <p>Date: <%= details.date_and_time %></p>
-      <p>City: <%= details.city.city %></p>
-      <p>Place: <%= details.stage.stage %></p>
+      <p>Date: <%= @game.date_and_time %></p>
+      <p>City: <%= @game.city.city %></p>
+      <p>Place: <%= @game.stage.stage %></p>
     </div>
     <hr>
     <div class="game-extras">
@@ -26,5 +19,5 @@
       <%= link_to image_tag('expander.png', :class => "game-button"), "#" %>
     </div>
   </div>
-<% end %>
+</div>
 
