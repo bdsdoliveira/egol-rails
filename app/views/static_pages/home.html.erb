@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="span4">
+  <div class="span4 offset1">
     <div class="games">
       <% @games.each do |game| %>
         <div class="content white-box game-box">
@@ -16,16 +16,16 @@
           </div>
           <hr>
           <div class="game-extras">
-            <%= link_to image_tag('twitter.png', :class => "share-button"), "#" %>
-            <%= link_to image_tag('facebook.png', :class => "share-button"), "#"  %>
-            <%= link_to image_tag('gplus.png', :class => "share-button"), "#"  %>
+            <%= link_to image_tag('twitter.png', :class => "share-button"), "http://twitter.com/home?status=#{static_pages_home_url}" %>
+            <%= link_to image_tag('facebook.png', :class => "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{static_pages_home_url}" %>
+            <%= link_to image_tag('gplus.png', :class => "share-button"), "https://plus.google.com/share?url=#{static_pages_home_url}" %>
             <%= link_to image_tag('expander.png', :class => "game-button"), action: "details", id: game.id, remote: true %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-  <div class="span7 offset1">
+  <div class="span5 offset1">
     <div class="content white-box game-box">
       <div id="details">
         <div class="welcome-title">
