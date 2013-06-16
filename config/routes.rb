@@ -9,9 +9,12 @@ EhGol::Application.routes.draw do
   resources :teams
   resources :cities
   resources :games
+  
   resources :users
-
-  match '/signup', to: "users#new"
+  match '/signup',  to: 'users#new'
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # Mobile access to list of games
   match '/m', to: 'games#m'

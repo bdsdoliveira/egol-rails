@@ -1,37 +1,51 @@
 
 <div id="logo" class="container">
   <%= link_to image_tag('ic_launcher.png'), root_path, :class => "brand" %>
-  <div class="navbar navbar-inverse">
-    <div class="navbar-inner">
-      <ul class="nav">
-        <li><%= link_to "Games",  games_path,  :class => 'item' %></li>
-        <li><%= link_to "Cities", cities_path, :class => 'item' %></li>
-        <li><%= link_to "Teams",  teams_path,  :class => 'item' %></li>
-        <li><%= link_to "Stages", stages_path, :class => 'item' %></li>
-        <li><%= link_to "Users",  users_path,  :class => 'item' %></li>
-        <li><%= link_to "/m",     m_path,      :class => 'item' %></li>
-      </ul>
+  <% if signed_in? %>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li><%= link_to "Games",   games_path,  :class => 'item' %></li>
+          <li><%= link_to "Cities",  cities_path, :class => 'item' %></li>
+          <li><%= link_to "Teams",   teams_path,  :class => 'item' %></li>
+          <li><%= link_to "Stages",  stages_path, :class => 'item' %></li>
+          <li><%= link_to "Users",   users_path,  :class => 'item' %></li>
+          <li><%= link_to "/m",      m_path,      :class => 'item' %></li>
+        </ul>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="btn-group dropdown">
-    <a href="" class="btn btn-inverse btn-large dropdown-toggle" data-toggle="dropdown">
-      Login
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu pull-right">
-      <form>
-        <li><input type="text" class="input-large" placeholder="Email"></li>
-        <li><input type="password" class="input-large" placeholder="Password"></li>
-        <li>
-          <button type="submit" class="btn btn-primary">Log in</button>
-        </li>
-        <li class="divider"></li>
-        <li class="sign-up">Sign up now!</li>
-        <li>
-          <%= link_to '<button type="button" class="btn btn-success">Sign up</button>'.html_safe, signup_path %>
-        </li>
-      </form>
-    </ul>
+    <% if signed_in? %>
+      <a href="" class="btn btn-success btn-large dropdown-toggle" data-toggle="dropdown">
+        <i class="icon-user icon-white"></i>
+        <%= current_user.name %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu pull-right">
+        <li><%= link_to "Profile",  user_path(current_user), :class => 'item' %></li>
+        <li><%= link_to "Sign out", signout_path, method: 'delete', :class => 'item' %></li>
+      </ul>
+    <% else %>
+      <a href="" class="btn btn-success btn-large dropdown-toggle" data-toggle="dropdown">
+        Login
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu pull-right">
+        <form>
+          <%= form_for(:session, url: sessions_path) do |f| %>
+            <li><%= f.text_field :email, class: "input-large", placeholder: "Email" %></li>
+            <li><%= f.password_field :password, class: "input-large", placeholder: "Password" %></li>
+            <li><%= f.submit "Sign in", class: "btn btn-primary" %></li>
+          <% end %>
+          <li class="divider"></li>
+          <li class="sign-up">Sign up now!</li>
+          <li>
+            <%= link_to '<button type="button" class="btn btn-warning">Sign up</button>'.html_safe, signup_path %>
+          </li>
+        </form>
+      </ul>
+    <% end %>
   </div>
 </div>
 
