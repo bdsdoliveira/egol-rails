@@ -1,43 +1,41 @@
 
-<div class="row">
-  <div class="span5">
-    <div class="games">
-      <% @games.each do |game| %>
-        <div class="content white-box game-box">
-          <span class="game-teams">
-            <span class="team1"><%= game.team1.team %></span>
-            <span>×</span>
-            <span class="team2"><%= game.team2.team %></span>
-          </span>
-          <div class="game-details">
-            <p>Date: <%= game.date_and_time %></p>
-            <p>City: <%= game.city.city %></p>
-            <p>Place: <%= game.stage.stage %></p>
-          </div>
-          <hr>
-          <div class="game-extras">
-            <%= link_to image_tag('twitter.png', :class => "share-button"), "http://twitter.com/home?status=#{static_pages_home_url}" %>
-            <%= link_to image_tag('facebook.png', :class => "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{static_pages_home_url}" %>
-            <%= link_to image_tag('gplus.png', :class => "share-button"), "https://plus.google.com/share?url=#{static_pages_home_url}" %>
-            <%= link_to image_tag('expander.png', :class => "game-button"), action: "details", id: game.id, remote: true %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="span6 offset1">
-    <div class="content white-box game-box">
-      <div id="details">
-        <div class="title">
-          Welcome to É Gol!
-        </div>
-        <div class="welcome-content">
-          Here you'll be able to get through the World Cup knowing when, where,
-          how and what is happening, so you easily manage and share the biggest
-          matches ...
-        </div>
+<div class="games">
+  <% @games.each do |game| %>
+    <div id="game_<%= game.id %>" class="well white-box game-box">
+      <div class="game-teams">
+        <span class="team1"><%= game.team1.team %></span>
+        <span class="versus">×</span>
+        <span class="team2"><%= game.team2.team %></span>
       </div>
+      <div class="game-details">
+        <p>Date: <%= game.date_and_time %></p>
+        <p>City: <%= game.city.city %></p>
+        <p>Place: <%= game.stage.stage %></p>
+      </div>
+      <hr>
+      <div class="game-extras">
+        <%= link_to image_tag('twitter.png', :class => "share-button"), "http://twitter.com/home?status=#{static_pages_home_url}#game_#{game.id}" %>
+        <%= link_to image_tag('facebook.png', :class => "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{static_pages_home_url}#game_#{game.id}" %>
+        <%= link_to image_tag('gplus.png', :class => "share-button"), "https://plus.google.com/share?url=#{static_pages_home_url}#game_#{game.id}" %>
+        <%= link_to image_tag('expander.png', :class => "game-button"), { action: "details", id: game.id }, id: "game_#{game.id}_details", remote: true %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="details">
+  <div class="well white-box game-box">
+    <div id="details">
+      <div class="title">
+        Welcome to É Gol!
+      </div>
+      <div class="welcome-content">
+        Here you'll be able to get through the World Cup knowing when, where,
+        how and what is happening, so you easily manage and share the biggest
+        matches ...
+        .................................. .................. .................... ................... ................. ................ ........................... .................... ................... ................... ................ ................ ................. .................. .............. ................. .................. ................ .................. ............... ................. .............. .................................. .................. .................... ................... ................. ................ ........................... .................... ................... ................... ................ ................ ................. .................. .............. ................. .................. ................ .................. ............... ................. ..............
+      </div>
+
     </div>
   </div>
 </div>
-
