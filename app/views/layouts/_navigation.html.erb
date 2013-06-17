@@ -1,51 +1,39 @@
 
-<div id="logo" class="container">
-  <%= link_to image_tag('ic_launcher.png'), root_path, :class => "brand" %>
-  <% if signed_in? %>
-    <div class="navbar navbar-inverse">
-      <div class="navbar-inner">
-        <ul class="nav">
-          <li><%= link_to "Games",   games_path,  :class => 'item' %></li>
-          <li><%= link_to "Cities",  cities_path, :class => 'item' %></li>
-          <li><%= link_to "Teams",   teams_path,  :class => 'item' %></li>
-          <li><%= link_to "Stages",  stages_path, :class => 'item' %></li>
-          <li><%= link_to "Users",   users_path,  :class => 'item' %></li>
-          <li><%= link_to "/m",      m_path,      :class => 'item' %></li>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-  <div class="btn-group dropdown">
-    <% if signed_in? %>
-      <a href="" class="btn btn-success btn-large dropdown-toggle" data-toggle="dropdown">
-        <i class="icon-user icon-white"></i>
-        <%= current_user.name %>
-        <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu pull-right">
-        <li><%= link_to "Profile",  user_path(current_user), :class => 'item' %></li>
-        <li><%= link_to "Sign out", signout_path, method: 'delete', :class => 'item' %></li>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "É Gol", root_path, :class => "brand" %>
+      <ul class="nav">
+        <% if signed_in? %>
+          <li><%= link_to '<i class="icon-star-empty icon-white"></i> Favorites'.html_safe, "#", :class => 'item' %></li>
+          <li class="vertical-divider"></li>
+          <li><%= link_to '<i class="icon-flag icon-white"></i> Games'.html_safe, games_path, :class => 'item' %></li>
+          <li><%= link_to '<i class="icon-globe icon-white"></i> Cities'.html_safe, cities_path, :class => 'item' %></li>
+          <li><%= link_to '<i class="icon-th icon-white"></i> Teams'.html_safe, teams_path, :class => 'item' %></li>
+          <li><%= link_to '<i class="icon-map-marker icon-white"></i> Stages'.html_safe, stages_path, :class => 'item' %></li>
+          <li><%= link_to '<i class="icon-book icon-white"></i> Users'.html_safe, users_path, :class => 'item' %></li>
+          <li><%= link_to '<i class="icon-download icon-white"></i> /m'.html_safe, m_path, :class => 'item' %></li>
+        <% end %>
       </ul>
-    <% else %>
-      <a href="" class="btn btn-success btn-large dropdown-toggle" data-toggle="dropdown">
-        Login
-        <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu pull-right">
-        <form>
-          <%= form_for(:session, url: sessions_path) do |f| %>
-            <li><%= f.text_field :email, class: "input-large", placeholder: "Email" %></li>
-            <li><%= f.password_field :password, class: "input-large", placeholder: "Password" %></li>
-            <li><%= f.submit "Sign in", class: "btn btn-primary" %></li>
-          <% end %>
-          <li class="divider"></li>
-          <li class="sign-up">Sign up now!</li>
-          <li>
-            <%= link_to '<button type="button" class="btn btn-warning">Sign up</button>'.html_safe, signup_path %>
+      <ul class="nav pull-right">
+        <% if signed_in? %>
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-user icon-white"></i>
+              <%= current_user.name %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu pull-right">
+              <li><%= link_to '<i class="icon-pencil"></i> Profile'.html_safe,  user_path(current_user), :class => 'item' %></li>
+              <li><%= link_to '<i class="icon-remove"></i> Sign out'.html_safe, signout_path, method: 'delete', :class => 'item' %></li>
+            </ul>
           </li>
-        </form>
+        <% else %>
+          <li><%= link_to "Sign in", signin_path, :class => 'item' %></li>
+          <li class="vertical-divider"></li>
+          <li><%= link_to "Sign up now!", signup_path, :class => 'item' %></li>
+        <% end %>
       </ul>
-    <% end %>
+    </div>
   </div>
 </div>
-

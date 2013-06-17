@@ -1,15 +1,11 @@
 @import "bootstrap";
-@import "bootstrap-responsive";
 
 body {
   background-color: rgba(243,243,243,0.998);
-}
-
-// Fix for navbar (responsive)
-@media (max-width: 979px) {
-  body {
-    padding-top: 0;
-  }
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
 * {
@@ -18,53 +14,29 @@ body {
   border-radius: 1px !important;
 }
 
-#logo {
-  background-color: #333333;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  display: table;
-  vertical-align: middle;
-  .brand {
-    margin-left: 80px;
-  }
-  .btn-group {
-    text-align: right;
-    display: table-cell;
-    padding-right: 80px;
-    .dropdown-toggle {
-      font-size: 16px;
-    }
-    .dropdown-menu {
-      text-align: center;
-      margin-top: 0;
-      margin-right: 80px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 14px;
-      padding-bottom: 0;
-      .nav-header {
-        padding: 0;
-      }
-      form {
-        margin-bottom: 14px;
-        .sign-up {
-          font-style: italic;
-          color: #999;
-          margin-bottom: 12px
-        }
-      }
-      .btn {
-        width: 100%;
+.row {
+  margin: 0;
+}
+
+.navbar {
+  .navbar-inner .container {
+    margin-left: 120px;
+    margin-right: 120px;
+    width: auto;
+    .brand {
+      float: left;
+      margin: 10px;
+      margin-right: 28px;
+      padding: 0;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      font-weight: bold;
+      color: #fff;
+      img {
+        height: 20px;
       }
     }
-  }
-  .navbar {
-    vertical-align: middle;
-    display: table-cell;
-    padding: 0;
-    margin: 0;
   }
 }
 
@@ -117,10 +89,6 @@ body {
   }
 }
 
-textarea {
-  height: 200px;
-}
-
 .white-box {
   background-color: #fff;
 }
@@ -130,7 +98,6 @@ textarea {
   padding-bottom: 15px;
   margin-bottom: 20px;
   margin-top: 20px;
-
   .game-teams {
     font-size: 32px;
     color: #777;
@@ -144,14 +111,12 @@ textarea {
       width: 46%;
     }
   }
-
   .game-details {
     font-size: 12px;
     line-height: 12px;
     margin-top: 20px;
     color: #999;
   }
-
   .game-extras {
     display: inline-block;
     width: 100%;
@@ -171,11 +136,12 @@ textarea {
   }
 }
 
-.welcome-title {
+.title {
   font-size: 48px;
+  line-height: 56px;
   color: #777;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   text-align: center;
   font-style: italic;
 }
@@ -188,3 +154,10 @@ textarea {
   text-align: left;
 }
 
+.box-content {
+  padding: 20px;
+  line-height: 36px;
+  font-size: 20px;
+  color: #777;
+  text-align: center;
+}

@@ -1,22 +1,30 @@
-<h1>Sign in</h1>
 
 <div class="row">
-  <div class="span6 offset3">
-    <% if notice %>
-      <div class="alert"><%= notice %></div>
-    <% end %>
-
-    <%= form_for(:session, url: sessions_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  <div class="span5 offset1">
+    <div class="content white-box game-box">
+      <div class="title">
+        Sign in
+      </div>
+      <div class="box-content">
+        <%= form_for(:session, url: sessions_path) do |f| %>
+          <%= f.text_field :email, :class => "input-xlarge", placeholder: "Email" %>
+          <%= f.password_field :password, :class => "input-xlarge", placeholder: "Password" %>
+          <%= f.submit "Sign in", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <% if notice %>
+        <div class="alert alert-error"><%= notice %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="span5 offset1">
+    <div class="content white-box game-box">
+      <div class="title">
+        New here?
+      </div>
+      <div class="box-content">
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-warning" %>
+      </div>
+    </div>
   </div>
 </div>
