@@ -5,7 +5,7 @@
       New here?
     </div>
     <div class="box-content">
-      <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-warning" %>
+      <%= link_to "Sign up now!", signup_path, id: "button-signup", class: "btn btn-large btn-warning" %>
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
       <%= form_for(:session, url: sessions_path) do |f| %>
         <%= f.text_field :email, :class => "input-xlarge", placeholder: "Email" %>
         <%= f.password_field :password, :class => "input-xlarge", placeholder: "Password" %>
-        <%= f.submit "Sign in", class: "btn btn-primary" %>
+        <%= f.submit "Sign in", id: "button-signin", class: "btn btn-primary" %>
       <% end %>
     </div>
     <% if notice %>

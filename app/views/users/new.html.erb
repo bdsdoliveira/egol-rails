@@ -1,23 +1,21 @@
 
-<div class="row">
-  <div class="span6 offset3">
-    <div class="well white-box game-box">
-      <div class="title">
-        Sign up
-      </div>
-      <div class="box-content">
-        <%= render 'form' %>
-      </div>
-      <% if @user.errors.any? %>
-        <div class="alert alert-error">
-          <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-              <li><%= msg %>.</li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+<div class="box-center">
+  <div class="well white-box game-box">
+    <div class="title">
+      Sign up
     </div>
+    <div class="box-content">
+      <%= render 'form' %>
+    </div>
+    <% if @user.errors.any? %>
+      <div class="alert alert-error">
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %>.</li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
 

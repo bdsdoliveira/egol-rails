@@ -1,2 +1,14 @@
 $('#details').replaceWith("<%= escape_javascript(render partial: 'details') %>");
 $('#details').height($(window).height() - 170);
+var mapOptions = {
+  center: new google.maps.LatLng(<%= @game.city.latitude %>, <%= @game.city.longitude %>),
+  zoom: 15,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+var map = new google.maps.Map(document.getElementById("game-map"), mapOptions);
+var marker = new google.maps.Marker({
+  position: new google.maps.LatLng(<%= @game.city.latitude %>, <%= @game.city.longitude %>),
+  map: map,
+  title: '<%= @game.team1.team %> × <%= @game.team2.team %>'
+});
+console.log(mapOptions[center]);
