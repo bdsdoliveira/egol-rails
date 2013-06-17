@@ -71,11 +71,15 @@ body {
   }
 }
 
-.games {
+.box-left {
   width: 38.64%;
+  .games {
+    margin-top: -60px;
+    padding-top: 60px;
+  }
 }
 
-.details {
+.box-right {
   position: fixed;
   top: 60px;
   left: 44%;
@@ -87,6 +91,23 @@ body {
     padding-right: 48px;
     height: auto;
     overflow-y: scroll;
+  }
+}
+
+.box-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.box-content {
+  padding: 20px;
+  text-align: center;
+  .btn-primary {
+    width: 284px;
+  }
+  .btn-warning {
+    width: 100%;
+    margin-left: -20px;
   }
 }
 
@@ -156,12 +177,4 @@ body {
   font-size: 20px;
   color: #777;
   text-align: left;
-}
-
-.box-content {
-  padding: 20px;
-  text-align: center;
-  .btn {
-    width: 284px;
-  }
 }
