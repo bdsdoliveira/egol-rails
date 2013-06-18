@@ -1,37 +1,32 @@
 
-<div class="row">
-  <div class="span4">
-    Users »
-    <br />
-    <b><%= @user.name %></b>
+<div class="box-left">
+  <div class="well white-box game-box">
+    <div class="title">
+      <%= @user.name %>
+    </div>
+    <div class="box-content">
+      <%= link_to image_tag('http://placehold.it/300x300&text=PHOTO'), edit_user_path(@user) %>
+    </div>
+  </div>
+</div>
+<div class="box-right">
+  <div class="well white-box game-box">
     <% if !notice.nil? %>
       <div class="alert alert-success">
         <%= notice %>
       </div>
     <% end %>
-  </div>
-  <div class="span8">
-    <br />
-    <div class="well white-box">
-      <div class="media">
-        <div class="pull-left">
-        <%= link_to image_tag('placeholder-100x100.gif'), edit_user_path(@user), :class => "pull-left media-object" %><br />
-        <%= link_to 'Edit', edit_user_path(@user) %><br />
-        <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-        <div class="media-body">
-          <ul class="unstyled">
-            <h5 class="nav-header">Credentials</h5>
-            <li><b>Name:</b> <%= @user.name %></li>
-            <li><b>Email:</b> <%= @user.email %></li>
-            <h5 class="nav-header">Password</h5>
-            <li><b>Password:</b> <%= @user.password_digest %></li>
-            <h5 class="nav-header">Fotos</h5>
-            <li><b>...</b></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <ul class="unstyled">
+      <h5 class="nav-header">Credentials</h5>
+      <li><b>Name:</b> <%= @user.name %></li>
+      <li><b>Email:</b> <%= @user.email %></li>
+      <h5 class="nav-header">Password</h5>
+      <li><b>Password:</b> <%= @user.password_digest %></li>
+      <h5 class="nav-header">Photos</h5>
+      <li><b>...</b></li>
+      <br />
+      <%= link_to 'Edit details', edit_user_path(@user), class: "btn btn-small btn-success" %>
+      <%= link_to 'Delete account', @user, method: :delete, class: "btn btn-small btn-danger", data: { confirm: 'Are you sure?' } %>
+    </ul>
   </div>
 </div>
-
