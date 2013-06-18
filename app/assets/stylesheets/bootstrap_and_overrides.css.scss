@@ -14,11 +14,6 @@ body {
   border-radius: 1.5px !important;
 }
 
-.row {
-  margin: 0;
-  padding: 0;
-}
-
 .alert {
   padding: 10px;
   padding-bottom: 2px;
@@ -51,7 +46,9 @@ body {
   }
 }
 
-.box-left {
+
+
+.box-left-fixed {
   width: 38.64%;
   .games {
     margin-top: -60px;
@@ -65,7 +62,7 @@ body {
   }
 }
 
-.box-right {
+.box-right-fixed {
   position: fixed;
   top: 60px;
   left: 44%;
@@ -78,99 +75,125 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
   }
+}
+
+
+
+
+
+
+
+.box {
+  padding: 20px;
+  background-color: #fff;
+  vertical-align: top;
+}
+
+.box-left {
+  display: inline-block;
+  width: 34%;
+  margin-right: 2%;
+}
+
+.box-right {
+  display: inline-block;
+  width: 54%;
+  margin-left: 2%;
+}
+
+.box-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.box-content {
+  padding: 0;
+  text-align: center;
+  margin-bottom: 12px;
+  .title {
+    font-size: 48px;
+    line-height: 56px;
+    color: #777;
+    margin-top: 12px;
+    margin-bottom: 36px;
+    font-style: italic;
+  }
+  .btn {
+    width: 80%;
+    max-width: 284px;
+  }
+}
+
+.box-details {
+  padding: 0;
   .nav-header {
     &:first-child {
       margin-top: 0px;
     }
     padding: 0;
     margin-top: 16px;
-    margin-bottom: 4px;
   }
 }
 
-.box-center {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  .btn {
-    width: 284px;
-  }
-}
 
-.box-content {
-  padding: 20px;
-  text-align: center;
-  #button-signup {
-    width: 100%;
-    margin-left: -20px;
-  }
-  #button-signin {
-    width: 284px;
-  }
-}
 
-.white-box {
-  background-color: #fff;
-}
+
+
 
 .game-box {
   padding: 30px;
   padding-bottom: 14px;
   margin-bottom: 20px;
   margin-top: 20px;
-  .game-teams {
-    font-size: 32px;
-    color: #777;
-    text-align: center;
-    .team1 {
-      float: left;
-      width: 46%;
-    }
-    .versus {
-      width: 4%;
-    }
-    .team2 {
-      float: right;
-      width: 46%;
-    }
+}
+
+.game-teams {
+  font-size: 32px;
+  color: #777;
+  text-align: center;
+  .team1 {
+    float: left;
+    width: 46%;
   }
-  .game-details {
-    font-size: 12px;
-    line-height: 12px;
-    margin-top: 36px;
-    color: #999;
+  .versus {
+    width: 4%;
   }
-  #game_map {
-    height: 240px;
-    position: relative;
-  }
-  .game-extras {
-    display: inline-block;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    .share-button {
-      float: left;
-      margin-right: 8px;
-      max-width: 10%;
-    }
-    .game-button {
-      float: right;
-      display: inline-block;
-      vertical-align: middle;
-      max-width: 10%;
-    }
+  .team2 {
+    float: right;
+    width: 46%;
   }
 }
 
-.title {
-  font-size: 48px;
-  line-height: 56px;
-  color: #777;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  text-align: center;
-  font-style: italic;
+.game-details {
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 36px;
+  color: #999;
+}
+
+#game_map {
+  height: 240px;
+  position: relative;
+}
+
+.game-extras {
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  .share-button {
+    float: left;
+    margin-right: 8px;
+    max-width: 10%;
+  }
+  .game-button {
+    float: right;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 10%;
+  }
 }
 
 .welcome-content {

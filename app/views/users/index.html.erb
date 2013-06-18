@@ -1,24 +1,26 @@
-<div>
-  Users »
-</div>
+<h1>Listing users</h1>
 
 <br />
 
+<%= link_to 'New User', new_user_path, class: "btn btn-small" %>
+
+<br />
+<br />
+
+<table class="table table-striped table-bordered table-condensed" >
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+
 <% @users.each do |user| %>
-  <div class="well white-box">
-    <div class="media">
-      <div class="pull-left">
-      <%= link_to image_tag('placeholder-100x100.gif'), user, :class => "pull-left media-object" %><br />
-      <%= link_to 'Edit', edit_user_path(user) %><br />
-      <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-      <div class="media-body">
-        <h4><%= link_to user.name, user %></h4>
-        <ul class="unstyled">
-          <li><b>Email:</b> <%= user.email %></li>
-          <li><b>Password:</b> <%= user.password_digest %></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Show', user, class: "btn btn-small" %>
+        <%= link_to 'Edit', edit_user_path(user), class: "btn btn-small" %>
+        <%= link_to 'Destroy', user, method: :delete, class: "btn btn-small", data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 <% end %>
+</table>
