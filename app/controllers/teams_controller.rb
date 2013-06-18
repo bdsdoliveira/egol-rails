@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_filter :signed_in_user
+
   # GET /teams
   # GET /teams.json
   def index
@@ -80,4 +82,10 @@ class TeamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def signed_in_user
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    end
 end
