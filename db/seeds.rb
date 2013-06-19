@@ -100,7 +100,7 @@ City.create([{
 
 ["Group Match", "Round of 16", "Quarter-Final", 
 "Semi-Final", "3rd Place", "Final"].each do |stage|
-  Stage.create(stage: stage)
+  Stage.create(name: stage)
 end
 
 Team.create([{
