@@ -1,10 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-    @games = Game.all
+    @matches = Match.all
   end
 
   def details
-    @game = Game.find(params[:id])
+    @match = Match.find(params[:id])
   end
 
   def help

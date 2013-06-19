@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-  attr_accessible :address, :city, :latitude, :longitude, :stadium, :stadium_alternative, :timezone
+  attr_accessible :address, :latitude, :longitude, :name, :stadium, :stadium_alternative, :timezone
 
-  has_many :games
+  has_many :matches
 end

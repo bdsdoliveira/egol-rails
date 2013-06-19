@@ -2,10 +2,10 @@
 
 one:
   team: MyString
-  team_code: MyString
+  code: MyString
   group: MyString
 
 two:
   team: MyString
-  team_code: MyString
+  code: MyString
   group: MyString

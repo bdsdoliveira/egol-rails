@@ -1,24 +1,24 @@
 
 <div class="box-left-fixed">
-  <% @games.each do |game| %>
-    <div id="game_<%= game.id %>" class="games">
-      <div class="box box-content well game-box">
-        <div class="game-teams">
-          <span class="team1"><%= game.team1.team %></span>
+  <% @matches.each do |match| %>
+    <div id="match_<%= match.id %>" class="matches">
+      <div class="box box-content well match-box">
+        <div class="match-teams">
+          <span class="team1"><%= match.team1.name %></span>
           <span class="versus">×</span>
-          <span class="team2"><%= game.team2.team %></span>
+          <span class="team2"><%= match.team2.name %></span>
         </div>
-        <div class="game-details">
-          <p>Date: <%= game.date_and_time %></p>
-          <p>City: <%= game.city.city %></p>
-          <p>Place: <%= game.stage.stage %></p>
+        <div class="match-details">
+          <p>Date: <%= match.date_and_time %></p>
+          <p>City: <%= match.city.name %></p>
+          <p>Place: <%= match.stage.name %></p>
         </div>
         <hr>
-        <div class="game-extras">
-          <%= link_to image_tag('twitter.png', :class => "share-button"), "http://twitter.com/home?status=#{static_pages_home_url}#game_#{game.id}" %>
-          <%= link_to image_tag('facebook.png', :class => "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{static_pages_home_url}#game_#{game.id}" %>
-          <%= link_to image_tag('gplus.png', :class => "share-button"), "https://plus.google.com/share?url=#{static_pages_home_url}#game_#{game.id}" %>
-          <%= link_to image_tag('expander.png', :class => "game-button"), { action: "details", id: game.id }, id: "game_#{game.id}_details", remote: true %>
+        <div class="match-extras">
+          <%= link_to image_tag('twitter.png', class: "share-button"), "http://twitter.com/home?status=#{static_pages_home_url}#match_#{match.id}" %>
+          <%= link_to image_tag('facebook.png', class: "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{static_pages_home_url}#match_#{match.id}" %>
+          <%= link_to image_tag('gplus.png', class: "share-button"), "https://plus.google.com/share?url=#{static_pages_home_url}#match_#{match.id}" %>
+          <%= link_to image_tag('expander.png', class: "match-button"), { action: "details", id: match.id }, id: "match_#{match.id}_details", remote: true %>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
 </div>
 
 <div class="box-right-fixed">
-  <div class="box box-content well game-box">
+  <div class="box box-content well match-box">
     <div id="details">
       <div class="title">
         Welcome to É Gol!

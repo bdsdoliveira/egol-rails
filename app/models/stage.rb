@@ -1,5 +1,5 @@
 class Stage < ActiveRecord::Base
-  attr_accessible :stage
+  attr_accessible :name
 
-  has_many :games
+  has_many :matches
 end

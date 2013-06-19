@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  attr_accessible :group, :team, :team_code
+  attr_accessible :group, :name, :code
 
-  has_many :games
+  has_many :matches
 end

@@ -1,13 +1,13 @@
 $('#details').replaceWith("<%= escape_javascript(render partial: 'details') %>");
 $('.box-right-fixed').height($(window).height() - 162);
 var mapOptions = {
-  center: new google.maps.LatLng(<%= @game.city.latitude %>, <%= @game.city.longitude %>),
+  center: new google.maps.LatLng(<%= @match.city.latitude %>, <%= @match.city.longitude %>),
   zoom: 15,
   mapTypeId: google.maps.MapTypeId.ROADMAP
 };
-var map = new google.maps.Map(document.getElementById("game_map"), mapOptions);
+var map = new google.maps.Map(document.getElementById("match_map"), mapOptions);
 var marker = new google.maps.Marker({
   position: mapOptions["center"],
   map: map,
-  title: '<%= @game.city.stadium %> – <%= @game.city.city %>'
+  title: '<%= @match.city.stadium %> – <%= @match.city.name %>'
 });

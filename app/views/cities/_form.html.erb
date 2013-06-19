@@ -12,34 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :stadium %><br />
+    <%= f.label :stadium %>
     <%= f.text_field :stadium %>
   </div>
   <div class="field">
-    <%= f.label :stadium_alternative %><br />
+    <%= f.label :stadium_alternative %>
     <%= f.text_field :stadium_alternative %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address %>
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :timezone %><br />
+    <%= f.label :timezone %>
     <%= f.text_field :timezone %>
   </div>
   <div class="field">
-    <%= f.label :latitude %><br />
+    <%= f.label :latitude %>
     <%= f.text_field :latitude %>
   </div>
   <div class="field">
-    <%= f.label :longitude %><br />
+    <%= f.label :longitude %>
     <%= f.text_field :longitude %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: "btn btn-warning" %>
   </div>
 <% end %>

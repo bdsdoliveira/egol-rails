@@ -8,7 +8,7 @@ EhGol::Application.routes.draw do
   resources :stages
   resources :teams
   resources :cities
-  resources :games
+  resources :matches
   
   resources :users
   match '/signup',  to: 'users#new'
@@ -16,8 +16,8 @@ EhGol::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  # Mobile access to list of games
-  match '/m', to: 'games#m'
+  # Mobile access to list of matches
+  match '/m', to: 'matches#m'
 
   root to: 'static_pages#home'
 
@@ -29,8 +29,8 @@ EhGol::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  #   match 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # This route can be invoked with purchase_url(id: product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -57,7 +57,7 @@ EhGol::Application.routes.draw do
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', :on => :collection
+  #       get 'recent', on: :collection
   #     end
   #   end
 
@@ -70,7 +70,7 @@ EhGol::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'public#index'
+  # root to: 'public#index'
 
   # See how all your routes lay out with "rake routes"
 

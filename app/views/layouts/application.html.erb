@@ -6,7 +6,7 @@
   <title><%= content_for?(:title) ? yield(:title) : "É Gol!" %></title>
   <meta name="description" content="">
   <meta name="author" content="">
-  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.7&key=AIzaSyBu4zQGNaajIn9VyiJeAoSDOYnTWbkbZtk&sensor=false" %>
   <%= csrf_meta_tags %>

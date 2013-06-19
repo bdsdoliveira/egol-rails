@@ -18,7 +18,7 @@ class StagesControllerTest < ActionController::TestCase
 
   test "should create stage" do
     assert_difference('Stage.count') do
-      post :create, stage: { stage: @stage.stage }
+      post :create, stage: { stage: @stage.name }
     end
 
     assert_redirected_to stage_path(assigns(:stage))
@@ -35,7 +35,7 @@ class StagesControllerTest < ActionController::TestCase
   end
 
   test "should update stage" do
-    put :update, id: @stage, stage: { stage: @stage.stage }
+    put :update, id: @stage, stage: { stage: @stage.name }
     assert_redirected_to stage_path(assigns(:stage))
   end
 

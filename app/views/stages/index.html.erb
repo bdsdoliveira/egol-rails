@@ -9,13 +9,13 @@
 
 <table class="table table-striped table-bordered table-condensed" >
   <tr>
-    <th>Stage</th>
+    <th>Name</th>
     <th>Actions</th>
   </tr>
 
 <% @stages.each do |stage| %>
   <tr>
-    <td><%= stage.stage %></td>
+    <td><%= stage.name %></td>
     <td><%= link_to 'Show', stage, class: "btn btn-small" %>
         <%= link_to 'Edit', edit_stage_path(stage), class: "btn btn-small" %>
         <%= link_to 'Destroy', stage, method: :delete, class: "btn btn-small", data: { confirm: 'Are you sure?' } %></td>
