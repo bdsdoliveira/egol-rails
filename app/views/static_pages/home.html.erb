@@ -4,14 +4,15 @@
     <div id="match_<%= match.id %>" class="matches">
       <div class="box box-content well match-box">
         <div class="match-teams">
-          <span class="team1"><%= match.team1.name %></span>
+          <span class="team1"><%= match.team1.name ? match.team1.name : match.team1.code %></span>
           <span class="versus">×</span>
-          <span class="team2"><%= match.team2.name %></span>
+          <span class="team2"><%= match.team2.name ? match.team2.name : match.team2.code %></span>
         </div>
         <div class="match-details">
           <p>Date: <%= match.date_and_time %></p>
           <p>City: <%= match.city.name %></p>
-          <p>Place: <%= match.stage.name %></p>
+          <p>Place: <%= match.city.stadium %></p>
+          <p>Stage: <%= match.stage.name %></p>
         </div>
         <hr>
         <div class="match-extras">
@@ -25,12 +26,12 @@
   <% end %>
 </div>
 
-<div class="box-right-fixed">
-  <div class="box box-content well match-box">
-    <div id="details">
-      <div class="title">
-        Welcome to É Gol!
-      </div>
+
+<div id="details" class="box-right-fixed">
+
+  <div class="box well">
+    <div class="box-content">
+      <div class="title">Welcome to É Gol!</div>
       <div class="welcome-content">
         Here you'll be able to get through the World Cup knowing when, where,
         how and what is happening, so you easily manage and share the biggest
@@ -39,6 +40,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 <script type="text/javascript">

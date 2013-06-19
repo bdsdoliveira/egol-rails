@@ -1,31 +1,40 @@
 
-<div id="details">
-  <span class="match-teams">
-    <span class="team1"><%= @match.team1.name %></span>
-    <span>×</span>
-    <span class="team2"><%= @match.team2.name %></span>
-  </span>
-  <div class="match-details">
-    <p>Date: <%= @match.date_and_time %></p>
-    <p>City: <%= @match.city.name %></p>
-    <p>Place: <%= @match.stage.name %></p>
-  </div>
-</div>
+<div id="details" class="box-right-fixed">
 
-<div class="match-map">
-  <div id="match_map"></div>
-  <div class="match-map-buttons">
-    <%= link_to '<i class="icon-map-marker"></i> Open in Google Maps'.html_safe, "", class: "btn btn-large" %>
-    <%= link_to '<i class="icon-road"></i> Get directions'.html_safe, "", class: "btn btn-large" %>
+  <div class="box well">
+    <span class="match-teams">
+      <span class="team1"><%= @match.team1.name ? @match.team1.name : @match.team1.code %></span>
+      <span>×</span>
+      <span class="team2"><%= @match.team2.name ? @match.team2.name : @match.team2.code %></span>
+    </span>
+    <div class="match-details">
+      <p>Date: <%= @match.date_and_time %></p>
+      <p>City: <%= @match.city.name %></p>
+      <p>Place: <%= @match.city.stadium %> (<%= @match.city.stadium_alternative %>)</p>
+      <p>Stage: <%= @match.stage.name %></p>
+    </div>
   </div>
-</div>
 
-<div>
-  <hr>
-  <div class="match-extras">
-    <%= link_to image_tag('twitter.png', class: "share-button"), "http://twitter.com/home?status=#{static_pages_home_url}#match_#{@match.id}" %>
-    <%= link_to image_tag('facebook.png', class: "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{static_pages_home_url}#match_#{@match.id}" %>
-    <%= link_to image_tag('gplus.png', class: "share-button"), "https://plus.google.com/share?url=#{static_pages_home_url}#match_#{@match.id}" %>
-    <%= link_to image_tag('expander.png', class: "match-button"), "#" %>
+  <div class="match-map">
+    <div id="match_map"></div>
+    <div class="match-map-buttons">
+      <div class="box well">
+        <%= link_to '<i class="icon-map-marker"></i> Open in Google Maps'.html_safe, "" %>
+      </div>
+      <div class="box well">
+        <%= link_to '<i class="icon-road"></i> Get directions'.html_safe, "" %>
+      </div>
+    </div>
   </div>
+
+  <div>
+    <hr>
+    <div class="match-extras">
+      <%= link_to image_tag('twitter.png', class: "share-button"), "http://twitter.com/home?status=#{static_pages_home_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('facebook.png', class: "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{static_pages_home_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('gplus.png', class: "share-button"), "https://plus.google.com/share?url=#{static_pages_home_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('expander.png', class: "match-button"), "#" %>
+    </div>
+  </div>
+
 </div>
