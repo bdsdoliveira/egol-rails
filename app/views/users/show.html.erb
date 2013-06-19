@@ -7,12 +7,13 @@
 </div>
 
 <div class="box box-right well">
+  <% if notice %>
+    <div class="alert alert-success">
+      <p><%= notice %></p>
+    </div>
+    <br />
+  <% end %>
   <div class="box-details">
-    <% if !notice.nil? %>
-      <div class="alert alert-success">
-        <%= notice %>
-      </div>
-    <% end %>
     <ul class="unstyled">
       <h5 class="nav-header">Credentials</h5>
       <li><b>Name:</b> <%= @user.name %></li>

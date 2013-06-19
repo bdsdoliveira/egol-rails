@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to user
     else
-      redirect_to signin_path, notice: 'Invalid email/password combination'
+      redirect_to signin_path, notice: 'Invalid email or password combination.'
     end
   end
 

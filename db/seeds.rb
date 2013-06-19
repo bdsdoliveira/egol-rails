@@ -1,14 +1,22 @@
 
+User.create([{
+    name: "Admin",
+    email: "admin@email.com",
+    password: "password",
+    password_confirmation: "password"
+  }
+])
+
 City.create([{
     name: "São Paulo",
-    stadium:  "Arena de São Paulo",
-    stadium_alternative:  "Arena Corinthians",
-    address:  "R. Doutor Luís Aires, 3596-3976, Itaquera – São Paulo, São Paulo, Brazil",
+    stadium: "Arena de São Paulo",
+    stadium_alternative: "Arena Corinthians",
+    address: "R. Doutor Luís Aires, 3596-3976, Itaquera – São Paulo, São Paulo, Brazil",
     timezone: "GMT-3",
     latitude: "-23.545531",
-    longitude:  "-46.473373"
+    longitude: "-46.473373"
   },{
-    name: "Natal",                                                                                                                              
+    name: "Natal",
     stadium: "Estádio das Dunas",
     stadium_alternative: "Complexo Arena das Dunas",
     address: "Centro Administrativo Rio Grande do Norte, Lagoa Nova – Natal, Rio Grande do Norte, Brazil",
@@ -88,7 +96,7 @@ City.create([{
     latitude: "-22.912167",
     longitude: "-43.230164"
   },{
-    name: "Curitiba",                                                                                                                               
+    name: "Curitiba",
     stadium: "Arena da Baixada",
     stadium_alternative: "Estádio Joaquim Américo Guimarães",
     address: "R. Madre Maria dos Anjos, 1071, Água Verde – Curitiba, Paraná, Brazil",
@@ -98,9 +106,9 @@ City.create([{
   }
 ])
 
-["Group Match", "Round of 16", "Quarter-Final", 
+["Group Match", "Round of 16", "Quarter-Final",
 "Semi-Final", "3rd Place", "Final"].each do |stage|
-  Stage.create(name: stage)
+  Stage.create name: stage
 end
 
 Team.create([{
