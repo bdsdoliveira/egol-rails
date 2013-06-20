@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
 
   def details
     @match = Match.find(params[:id])
+    render partial: 'details'
   end
 
   def help

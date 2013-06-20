@@ -1,9 +1,8 @@
 EhGol::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
-
-  match 'details', to: "static_pages#details"
+  get "home", controller: 'static_pages'
+  get "help", controller: 'static_pages'
+  get "about", controller: 'static_pages'
+  get 'details', controller: 'static_pages'
 
   resources :stages
   resources :teams

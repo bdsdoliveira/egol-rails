@@ -1,5 +1,5 @@
 
-<div class="box-fixed-left">
+<div class="box-fixed-left matches">
   <% @matches.each do |match| %>
     <div class="box well" id="match_<%= match.id %>">
       <div class="match-teams">
@@ -18,7 +18,7 @@
         <%= link_to image_tag('twitter.png', class: "match-extras-share-button"), "http://twitter.com/home?status=#{root_url}#match_#{match.id}" %>
         <%= link_to image_tag('facebook.png', class: "match-extras-share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{root_url}#match_#{match.id}" %>
         <%= link_to image_tag('gplus.png', class: "match-extras-share-button"), "https://plus.google.com/share?url=#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('expander.png', class: "match-extras-details-button"), { action: "details", id: match.id }, id: "match_#{match.id}_details", remote: true %>
+        <%= link_to image_tag('expander.png', class: "match-extras-details-button"), details_path(id: match.id), id: "match_#{match.id}_details" %>
       </div>
     </div>
   <% end %>
@@ -38,10 +38,21 @@
   </div>
 </div>
 
+
 <script type="text/javascript">
-  $(window).on('load resize', function(){
+  $(window).on('load resize', function() {
     $('.box-fixed-left').height($(this).height() - 76);
     $('.box-fixed-right').height($(this).height() - 76);
     map.resize();
+  });
+  $('.matches').on('click', '.match-extras-details-button', function() {
+    $.ajax({
+      url: $(this).parent().attr('href'),
+      success: function(html) {
+        $('#details').replaceWith(html);
+        $('.box-fixed-right').height($(window).height() - 76);
+      }
+    });
+    return false;
   });
 </script>

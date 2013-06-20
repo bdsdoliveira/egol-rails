@@ -36,3 +36,17 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  var mapOptions = {
+    center: new google.maps.LatLng(<%= @match.city.latitude %>, <%= @match.city.longitude %>),
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("match_map"), mapOptions);
+  var marker = new google.maps.Marker({
+    position: mapOptions["center"],
+    map: map,
+    title: '<%= @match.city.stadium %> – <%= @match.city.name %>'
+  });
+</script>
