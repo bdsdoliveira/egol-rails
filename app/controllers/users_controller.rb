@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
+  before_filter :correct_user, only: [:edit, :update, :destroy, :show]
+  before_filter :admin_user, only: [:index]
 
   def index
     @users = User.all
@@ -14,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -22,17 +23,13 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      redirect_to @user, notice: "Account successfully created and you're now signed in."
+      redirect_back_or @user, notice: "Account successfully created and you're now signed in."
     else
       render action: "new"
     end
   end
 
   def update
-    @user = User.find(params[:id])
-
-    params[:user].delete(:password) if params[:user][:password].blank?
-
     if @user.update_attributes(params[:user])
       sign_in @user
       redirect_to @user, notice: 'User was successfully updated.'
@@ -51,6 +48,18 @@ class UsersController < ApplicationController
   private
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in."
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user) or current_user.admin?
+    end
+
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
     end
 end

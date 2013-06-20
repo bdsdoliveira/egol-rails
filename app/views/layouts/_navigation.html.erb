@@ -7,21 +7,24 @@
         <% if signed_in? %>
           <li><%= link_to '<i class="icon-star icon-white"></i> Favorites'.html_safe, "#", class: 'item' %></li>
           <li><%= link_to '<i class="icon-calendar icon-white"></i> Calendar'.html_safe, "#", class: 'item' %></li>
-          <li class="divider-vertical"></li>
-          <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="icon-wrench icon-white"></i>
-              Admin
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu pull-right">
-              <li><%= link_to '<i class="icon-flag"></i> Matches'.html_safe, matches_path, class: 'item' %></li>
-              <li><%= link_to '<i class="icon-map-marker"></i> Cities'.html_safe, cities_path, class: 'item' %></li>
-              <li><%= link_to '<i class="icon-th"></i> Teams'.html_safe, teams_path, class: 'item' %></li>
-              <li><%= link_to '<i class="icon-time"></i> Stages'.html_safe, stages_path, class: 'item' %></li>
-              <li><%= link_to '<i class="icon-book"></i> Users'.html_safe, users_path, class: 'item' %></li>
-              <li><%= link_to '<i class="icon-download"></i> /m'.html_safe, m_path, class: 'item' %></li>
-            </ul>
+          <% if current_user.admin? %>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-wrench icon-white"></i>
+                Admin
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu pull-right">
+                <li><%= link_to '<i class="icon-flag"></i> Matches'.html_safe, matches_path, class: 'item' %></li>
+                <li><%= link_to '<i class="icon-map-marker"></i> Cities'.html_safe, cities_path, class: 'item' %></li>
+                <li><%= link_to '<i class="icon-th"></i> Teams'.html_safe, teams_path, class: 'item' %></li>
+                <li><%= link_to '<i class="icon-time"></i> Stages'.html_safe, stages_path, class: 'item' %></li>
+                <li><%= link_to '<i class="icon-book"></i> Users'.html_safe, users_path, class: 'item' %></li>
+                <li><%= link_to '<i class="icon-download"></i> /m'.html_safe, m_path, class: 'item' %></li>
+              </ul>
+            </li>
+          <% end %>
         <% end %>
       </ul>
       <ul class="nav pull-right">

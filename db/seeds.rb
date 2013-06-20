@@ -1,11 +1,11 @@
 
-User.create([{
-    name: "Admin",
-    email: "admin@email.com",
-    password: "password",
-    password_confirmation: "password"
-  }
-])
+admin = User.create(
+  name: "Admin",
+  email: "admin@email.com",
+  password: "password",
+  password_confirmation: "password"
+)
+admin.toggle! :admin
 
 City.create([{
     name: "São Paulo",
