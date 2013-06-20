@@ -1,12 +1,11 @@
 
-<div id="details" class="box-right-fixed">
-
+<div class="box-fixed-right" id="details">
   <div class="box well">
-    <span class="match-teams">
-      <span class="team1"><%= @match.team1.name ? @match.team1.name : @match.team1.code %></span>
-      <span>×</span>
-      <span class="team2"><%= @match.team2.name ? @match.team2.name : @match.team2.code %></span>
-    </span>
+    <div class="match-teams">
+      <div class="team1"><%= @match.team1.name ? @match.team1.name : @match.team1.code %></div>
+      <div class="versus">×</div>
+      <div class="team2"><%= @match.team2.name ? @match.team2.name : @match.team2.code %></div>
+    </div>
     <div class="match-details">
       <p>Date: <%= @match.date_and_time %></p>
       <p>City: <%= @match.city.name %></p>
@@ -30,11 +29,10 @@
   <div>
     <hr>
     <div class="match-extras">
-      <%= link_to image_tag('twitter.png', class: "share-button"), "http://twitter.com/home?status=#{root_url}#match_#{@match.id}" %>
-      <%= link_to image_tag('facebook.png', class: "share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{root_url}#match_#{@match.id}" %>
-      <%= link_to image_tag('gplus.png', class: "share-button"), "https://plus.google.com/share?url=#{root_url}#match_#{@match.id}" %>
-      <%= link_to image_tag('expander.png', class: "match-button"), "#" %>
+      <%= link_to image_tag('twitter.png', class: "match-extras-share-button"), "http://twitter.com/home?status=#{root_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('facebook.png', class: "match-extras-share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{root_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('gplus.png', class: "match-extras-share-button"), "https://plus.google.com/share?url=#{root_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('expander.png', class: "match-extras-details-button"), "#" %>
     </div>
   </div>
-
 </div>

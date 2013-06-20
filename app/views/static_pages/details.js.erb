@@ -1,5 +1,6 @@
 $('#details').replaceWith("<%= escape_javascript(render partial: 'details') %>");
-$('.box-right-fixed').height($(window).height() - 162);
+$('.box-fixed-right').height($(window).height() - 76);
+
 var mapOptions = {
   center: new google.maps.LatLng(<%= @match.city.latitude %>, <%= @match.city.longitude %>),
   zoom: 15,

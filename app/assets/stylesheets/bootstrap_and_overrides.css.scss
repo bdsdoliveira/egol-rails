@@ -79,6 +79,21 @@ body {
   width: 50%;
 }
 
+.box-fixed-left {
+  position: fixed;
+  width: 34%;
+  margin-right: 2%;
+  overflow-y: scroll; //clean this up
+}
+
+.box-fixed-right {
+  position: fixed;
+  width: 50%;
+  left: 42%;
+  margin-left: 2%;
+  overflow-y: scroll; //clean this up
+}
+
 .box-content {
   padding: 0;
   text-align: center;
@@ -111,73 +126,6 @@ body {
   }
 }
 
-
-
-
-
-
-
-.match-box {
-  padding: 30px;
-  padding-bottom: 14px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.match-teams {
-  font-size: 32px;
-  color: #777;
-  text-align: center;
-  .team1 {
-    float: left;
-    width: 46%;
-  }
-  .versus {
-    width: 4%;
-  }
-  .team2 {
-    float: right;
-    width: 46%;
-  }
-}
-
-.match-details {
-  font-size: 12px;
-  line-height: 12px;
-  margin-top: 36px;
-  color: #999;
-}
-
-#match_map {
-  height: 240px;
-  position: relative;
-}
-
-.match-extras {
-  display: inline-block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  .share-button {
-    float: left;
-    margin-right: 8px;
-    max-width: 10%;
-  }
-  .match-button {
-    float: right;
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 10%;
-  }
-}
-
-
-
-
-
-
-
-
 .welcome-content {
   padding: 20px;
   line-height: 36px;
@@ -186,42 +134,55 @@ body {
   text-align: left;
 }
 
-
-
-
-
-
-.box-left-fixed {
-  width: 38.64%;
-  .matches {
-    margin-top: -60px;
-    padding-top: 60px;
+.match-teams {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 36px;
+  line-height: 48px;
+  color: #777;
+  text-align: center;
+  .team1 {
+    display: inline-block;
+    float: left;
+    width: 43%;
   }
-  img {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 6px;
-    margin-right: 6px;
+  .versus {
+    display: inline-block;
+    width: 1%;
   }
-}
-
-.box-right-fixed {
-  position: fixed;
-  top: 60px;
-  left: 44%;
-  width: 50%;
-  //overflow: hidden;
-  .well {
-    margin-right: -20px;
-    padding-right: 48px;
-    height: auto;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  .team2 {
+    display: inline-block;
+    float: right;
+    width: 46%;
   }
 }
 
+.match-details {
+  font-size: 14px;
+  line-height: 14px;
+  color: #999;
+}
+
+.match-extras {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  .match-extras-share-button {
+    float: left;
+    margin-right: 8px;
+    max-width: 10%;
+  }
+  .match-extras-details-button {
+    float: right;
+    max-width: 10%;
+  }
+}
 
 
 
 
-
+#match_map {
+  height: 240px;
+  position: relative;
+}
