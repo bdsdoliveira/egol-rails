@@ -9,6 +9,7 @@
 
 <table class="table table-striped table-bordered table-condensed" >
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Stadium</th>
     <th>Stadium alternative</th>
@@ -16,11 +17,12 @@
     <th>Timezone</th>
     <th>Latitude</th>
     <th>Longitude</th>
-    <th>Actions</th>
+    <th></th>
   </tr>
 
 <% @cities.each do |city| %>
   <tr>
+    <td><%= city.id %></td>
     <td><%= city.name %></td>
     <td><%= city.stadium %></td>
     <td><%= city.stadium_alternative %></td>

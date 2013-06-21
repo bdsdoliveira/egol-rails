@@ -15,10 +15,12 @@
       </div>
       <hr>
       <div class="match-buttons">
-        <%= link_to image_tag('twitter.png', class: "match-button-share"), "http://twitter.com/home?status=#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('facebook.png', class: "match-button-share"), "https://www.facebook.com/sharer/sharer.php?u=#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('gplus.png', class: "match-button-share"), "https://plus.google.com/share?url=#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('expander.png', class: "match-button-expander", id: "match_#{match.id + 1}"), details_path(id: match.id) %>
+        <% message = "Hey, I'll be at #{match.city.stadium} in #{match.city.name} to watch the #{match.team1.name ? match.team1.name : match.team1.code} × #{match.team2.name ? match.team2.name : match.team2.code} match!" %>
+        <% url = "#{root_url}#match_#{match.id}" %>
+        <%= link_to image_tag('twitter.png', class: "match-button-share"), "http://twitter.com/intent/tweet?text=#{message}&url=#{url}", :target => "_blank" %>
+        <%= link_to image_tag('facebook.png', class: "match-button-share"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
+        <%= link_to image_tag('gplus.png', class: "match-button-share"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
+        <%= link_to image_tag('expander.png', class: "match-button-expander", id: "match_#{match.id + 1}"), match_path(id: match.id) %>
       </div>
     </div>
   <% end %>
@@ -27,12 +29,16 @@
 <div class="container-fixed-right" id="match_content" >
   <div class="box">
     <div class="box-content">
-      <div class="title">Welcome to É Gol!</div>
       <div class="welcome">
+        <div class="title">Welcome to <span class="brand">É Gol</span> !</div>
         Here you'll be able to get through the World Cup knowing when, where,
-        how and what is happening, so you easily manage and share the biggest
-        matches ...
-        .................................. .................. .................... ................... ................. ................ ........................... .................... ................... ................... ................ ................ ................. .................. .............. ................. .................. ................ .................. ............... ................. .............. .................................. .................. .................... ................... ................. ................ ........................... .................... ................... ................... ................ ................ ................. .................. .............. ................. .................. ................ .................. ............... ................. ..............
+        how and what is happening!
+        <br /><br />
+        <ul>
+          <li>Easily share the matches you'll be watching.</li>
+          <li>Sign up and post your own comments. Cheer for your team!</li>
+          <li>Create your profile and mark your favorite matches.</li>
+        </ul>
       </div>
     </div>
   </div>

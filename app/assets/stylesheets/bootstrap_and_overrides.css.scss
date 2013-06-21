@@ -32,23 +32,29 @@ body {
 }
 
 .navbar {
-  .navbar-inner .container {
+  .navbar-inner {
+    background-color: #222222;
+    background-image: none;
+    background-repeat: no-repeat;
+    filter: none;
+    .container {
     margin-left: 6%;
     margin-right: 6%;
     width: auto;
-    .brand {
-      float: left;
-      margin: 10px;
-      margin-right: 28px;
-      padding: 0;
-      font-size: 28px;
-      text-transform: uppercase;
-      letter-spacing: -3px;
-      font-weight: bold;
-      color: #fff;
-      i {
-        vertical-align: middle;
-        margin-top: -18px;
+      .brand {
+        float: left;
+        margin: 10px;
+        margin-right: 28px;
+        padding: 0;
+        font-size: 28px;
+        text-transform: uppercase;
+        letter-spacing: -3px;
+        font-weight: bold;
+        color: #fff;
+        i {
+          vertical-align: middle;
+          margin-top: -18px;
+        }
       }
     }
   }
@@ -118,6 +124,16 @@ body {
   font-size: 20px;
   color: #777;
   text-align: left;
+  .brand {
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    font-weight: bold;
+  }
+  ul li {
+    line-height: 36px;
+    list-style-type: square;
+  }
 }
 
 .container-absolute-left {

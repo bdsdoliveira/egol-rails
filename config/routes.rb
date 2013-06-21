@@ -2,7 +2,7 @@ EhGol::Application.routes.draw do
   get "home", controller: 'static_pages'
   get "help", controller: 'static_pages'
   get "about", controller: 'static_pages'
-  get 'details', controller: 'static_pages'
+  get 'match', controller: 'static_pages'
 
   resources :stages
   resources :teams

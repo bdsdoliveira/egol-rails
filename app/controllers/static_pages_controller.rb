@@ -3,9 +3,9 @@ class StaticPagesController < ApplicationController
     @matches = Match.all
   end
 
-  def details
+  def match
     @match = Match.find(params[:id])
-    render partial: 'details'
+    render partial: 'match'
   end
 
   def help

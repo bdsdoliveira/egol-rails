@@ -17,8 +17,14 @@
   <div class="match-map-google" id="match_map_google"></div>
   <div class="match-map-buttons">
     <div class="box">
-      <div class="match-map-button-left"><%= link_to '<i class="icon-map-marker"></i> Open in Google Maps'.html_safe, "" %></div>
-      <div class="match-map-button-right"><%= link_to '<i class="icon-road"></i> Get directions'.html_safe, "" %></div>
+      <div class="match-map-button-left">
+        <i class="icon-map-marker"></i>
+        <%= link_to 'Open in Google Maps'.html_safe, "http://maps.google.com/maps?ll=#{@match.city.latitude},#{@match.city.longitude}", target: "_blank" %>
+      </div>
+      <div class="match-map-button-right">
+        <i class="icon-road"></i>
+        <%= link_to 'Get directions'.html_safe, "http://maps.google.com/maps?daddr=#{@match.city.latitude},#{@match.city.longitude}", target: "_blank" %>
+      </div>
     </div>
   </div>
 </div>
