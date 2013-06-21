@@ -1,12 +1,12 @@
 
-<div class="box box-left well">
+<div class="box box-left">
   <div class="box-content">
     <div class="title"><%= @user.name %></div>
     <%= link_to image_tag('http://placehold.it/300x300&text=PHOTO'), edit_user_path(@user) %>
   </div>
 </div>
 
-<div class="box box-right well">
+<div class="box box-right">
   <% if notice %>
     <div class="alert alert-success">
       <p><%= notice %></p>

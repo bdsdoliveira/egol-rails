@@ -79,33 +79,10 @@ body {
   width: 50%;
 }
 
-.box-fixed-left {
-  position: fixed;
-  width: 34%;
-  margin-right: 2%;
-  overflow-y: scroll; //clean this up
-}
-
-.box-fixed-right {
-  position: fixed;
-  width: 50%;
-  left: 42%;
-  margin-left: 2%;
-  overflow-y: scroll; //clean this up
-}
-
 .box-content {
   padding: 0;
   text-align: center;
   margin-bottom: 12px;
-  .title {
-    font-size: 48px;
-    line-height: 56px;
-    color: #777;
-    margin-top: 12px;
-    margin-bottom: 36px;
-    font-style: italic;
-  }
   .btn {
     width: 80%;
     max-width: 284px;
@@ -126,7 +103,16 @@ body {
   }
 }
 
-.welcome-content {
+.title {
+  font-size: 48px;
+  line-height: 56px;
+  color: #777;
+  margin-top: 12px;
+  margin-bottom: 36px;
+  font-style: italic;
+}
+
+.welcome {
   padding: 20px;
   line-height: 36px;
   font-size: 20px;
@@ -134,55 +120,118 @@ body {
   text-align: left;
 }
 
-.match-teams {
-  display: block;
-  margin-bottom: 24px;
-  font-size: 36px;
-  line-height: 48px;
-  color: #777;
-  text-align: center;
-  .team1 {
-    display: inline-block;
-    float: left;
-    width: 43%;
-  }
-  .versus {
-    display: inline-block;
-    width: 1%;
-  }
-  .team2 {
-    display: inline-block;
-    float: right;
-    width: 46%;
+.container-absolute-left {
+  position: absolute;
+  width: 34%;
+  margin-right: 2%;
+  .box-match {
+    margin-bottom: 20px;
+    .match-teams {
+      display: block;
+      margin-bottom: 24px;
+      font-size: 36px;
+      line-height: 56px;
+      color: #777;
+      text-align: center;
+      .team1 {
+        display: inline-block;
+        float: left;
+        width: 43%;
+      }
+      .versus {
+        display: inline-block;
+        width: 1%;
+      }
+      .team2 {
+        display: inline-block;
+        float: right;
+        width: 46%;
+      }
+    }
+    .match-details {
+      font-size: 14px;
+      line-height: 14px;
+      color: #999;
+    }
+    .match-buttons {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      .match-button-share {
+        float: center;
+        margin-right: 8px;
+        max-width: 10%;
+      }
+      .match-button-expander {
+        float: right;
+        max-width: 10%;
+      }
+    }
   }
 }
 
-.match-details {
-  font-size: 14px;
-  line-height: 14px;
-  color: #999;
-}
-
-.match-extras {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  .match-extras-share-button {
-    float: left;
-    margin-right: 8px;
-    max-width: 10%;
+.container-fixed-right {
+  position: fixed;
+  width: 50%;
+  left: 42%;
+  margin-left: 2%;
+  height: 5%;
+  .box-match {
+    margin-bottom: 20px;
+    .match-teams {
+      display: block;
+      margin-bottom: 24px;
+      font-size: 36px;
+      line-height: 56px;
+      color: #777;
+      text-align: center;
+      .team1 {
+        display: inline-block;
+        float: left;
+        width: 43%;
+      }
+      .versus {
+        display: inline-block;
+        width: 1%;
+      }
+      .team2 {
+        display: inline-block;
+        float: right;
+        width: 46%;
+      }
+    }
+    .match-details {
+      font-size: 14px;
+      line-height: 14px;
+      color: #999;
+    }
   }
-  .match-extras-details-button {
-    float: right;
-    max-width: 10%;
+  .match-map {
+    .match-map-google {
+      height: 240px;
+      position: relative;
+    }
+    .match-map-buttons {
+      display: block;
+      text-align: center;
+      // a {
+      //   color: #777 !important;
+      //   &:hover {
+      //     text-decoration: none;
+      //   }
+      // }
+      .match-map-button-left {
+        display: inline-block;
+        float: left;
+        width: 50%;
+      }
+      .match-map-buttons-right {
+        display: inline-block;
+        float: right;
+        width: 50%;
+        color: #777;
+      }
+    }
   }
-}
-
-
-
-
-#match_map {
-  height: 240px;
-  position: relative;
 }

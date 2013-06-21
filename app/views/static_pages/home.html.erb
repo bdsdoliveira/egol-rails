@@ -1,7 +1,7 @@
 
-<div class="box-fixed-left matches">
+<div class="container-absolute-left">
   <% @matches.each do |match| %>
-    <div class="box well" id="match_<%= match.id %>">
+    <div class="box box-match">
       <div class="match-teams">
         <div class="team1"><%= match.team1.name ? match.team1.name : match.team1.code %></div>
         <div class="versus">×</div>
@@ -14,21 +14,21 @@
         <p>Stage: <%= match.stage.name %></p>
       </div>
       <hr>
-      <div class="match-extras">
-        <%= link_to image_tag('twitter.png', class: "match-extras-share-button"), "http://twitter.com/home?status=#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('facebook.png', class: "match-extras-share-button"), "https://www.facebook.com/sharer/sharer.php?u=#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('gplus.png', class: "match-extras-share-button"), "https://plus.google.com/share?url=#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('expander.png', class: "match-extras-details-button"), details_path(id: match.id), id: "match_#{match.id}_details" %>
+      <div class="match-buttons">
+        <%= link_to image_tag('twitter.png', class: "match-button-share"), "http://twitter.com/home?status=#{root_url}#match_#{match.id}" %>
+        <%= link_to image_tag('facebook.png', class: "match-button-share"), "https://www.facebook.com/sharer/sharer.php?u=#{root_url}#match_#{match.id}" %>
+        <%= link_to image_tag('gplus.png', class: "match-button-share"), "https://plus.google.com/share?url=#{root_url}#match_#{match.id}" %>
+        <%= link_to image_tag('expander.png', class: "match-button-expander", id: "match_#{match.id + 1}"), details_path(id: match.id) %>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="box-fixed-right" id="details" >
-  <div class="box well">
+<div class="container-fixed-right" id="match_content" >
+  <div class="box">
     <div class="box-content">
       <div class="title">Welcome to É Gol!</div>
-      <div class="welcome-content">
+      <div class="welcome">
         Here you'll be able to get through the World Cup knowing when, where,
         how and what is happening, so you easily manage and share the biggest
         matches ...
@@ -38,18 +38,16 @@
   </div>
 </div>
 
-
 <script type="text/javascript">
   $(window).on('load resize', function() {
-    $('.box-fixed-left').height($(this).height() - 76);
-    $('.box-fixed-right').height($(this).height() - 76);
+    $('.container-fixed-right').height($(this).height() - 76);
     map.resize();
   });
-  $('.matches').on('click', '.match-extras-details-button', function() {
+  $('.match-button-expander').click(function() {
     $.ajax({
       url: $(this).parent().attr('href'),
       success: function(html) {
-        $('#details').replaceWith(html);
+        $('#match_content').html(html);
         $('.box-fixed-right').height($(window).height() - 76);
       }
     });
