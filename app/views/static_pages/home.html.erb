@@ -11,7 +11,7 @@
         <p>Date: <%= match.date_and_time %></p>
         <p>City: <%= match.city.name %></p>
         <p>Place: <%= match.city.stadium %></p>
-        <p>Stage: <%= match.stage.name %></p>
+        <p><span class="label <%= @LABEL_COLORS[match.stage.id] %>"><%= match.stage.name %></span></p>
       </div>
       <hr>
       <div class="match-buttons">
@@ -30,7 +30,9 @@
   <div class="box">
     <div class="box-content">
       <div class="welcome">
-        <div class="title">Welcome to <span class="brand">É Gol</span> !</div>
+        <div class="title">
+          Welcome to <span class="brand">É Gol</span> !
+        </div>
         Here you'll be able to get through the World Cup knowing when, where,
         how and what is happening!
         <br /><br />
@@ -46,15 +48,14 @@
 
 <script type="text/javascript">
   $(window).on('load resize', function() {
-    $('.container-fixed-right').height($(this).height() - 76);
-    map.resize();
+    $('.match-map-google').height($(this).height() - 375);
+    map.panTo(marker.getPosition());
   });
   $('.match-button-expander').click(function() {
     $.ajax({
       url: $(this).parent().attr('href'),
       success: function(html) {
         $('#match_content').html(html);
-        $('.box-fixed-right').height($(window).height() - 76);
       }
     });
     return false;

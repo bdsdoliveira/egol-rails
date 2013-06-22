@@ -1,31 +1,39 @@
 
 <div class="box box-match">
+  <div class="match-details-date">
+    <div class="match-details-date-month">
+      <%= @match.date_and_time.strftime("%B") %>
+    </div>
+    <hr>
+    <%= @match.date_and_time.day %>
+    <div class="match-details-date-time">
+      <i class="icon-time icon-white"></i> <%= @match.date_and_time.strftime('%H:%M') %>
+    </div>
+  </div>
+  <div class="match-details">
+    <p>City: <%= @match.city.name %></p>
+    <p>Place: <%= @match.city.stadium %> (<%= @match.city.stadium_alternative %>)</p>
+    <p><span class="label <%= @LABEL_COLORS[@match.stage.id] %>"><%= @match.stage.name %></span></p>
+  </div>
   <div class="match-teams">
     <div class="team1"><%= @match.team1.name ? @match.team1.name : @match.team1.code %></div>
     <div class="versus">×</div>
     <div class="team2"><%= @match.team2.name ? @match.team2.name : @match.team2.code %></div>
-  </div>
-  <div class="match-details">
-    <p>Date: <%= @match.date_and_time %></p>
-    <p>City: <%= @match.city.name %></p>
-    <p>Place: <%= @match.city.stadium %> (<%= @match.city.stadium_alternative %>)</p>
-    <p>Stage: <%= @match.stage.name %></p>
+    <div class="match-teams-button"><%= link_to "Click here to see more", "#" %></div>
   </div>
 </div>
 
 <div class="match-map">
   <div class="match-map-google" id="match_map_google"></div>
   <div class="match-map-buttons">
-    <div class="box">
-      <div class="match-map-button-left">
+      <div class="box match-map-button-left">
         <i class="icon-map-marker"></i>
         <%= link_to 'Open in Google Maps'.html_safe, "http://maps.google.com/maps?ll=#{@match.city.latitude},#{@match.city.longitude}", target: "_blank" %>
       </div>
-      <div class="match-map-button-right">
+      <div class="box match-map-button-right">
         <i class="icon-road"></i>
         <%= link_to 'Get directions'.html_safe, "http://maps.google.com/maps?daddr=#{@match.city.latitude},#{@match.city.longitude}", target: "_blank" %>
       </div>
-    </div>
   </div>
 </div>
 
@@ -41,4 +49,5 @@
     map: map,
     title: '<%= @match.city.stadium %> – <%= @match.city.name %>'
   });
+  $('.match-map-google').height($(window).height() - 375);
 </script>

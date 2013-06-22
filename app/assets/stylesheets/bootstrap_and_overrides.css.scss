@@ -101,7 +101,7 @@ body {
     margin-bottom: 0;
     .nav-header {
       &:first-child {
-        margin-top: 0px;
+        margin-top: 0;
       }
       padding: 0;
       margin-top: 16px;
@@ -125,10 +125,9 @@ body {
   color: #777;
   text-align: left;
   .brand {
-    font-style: normal;
     text-transform: uppercase;
     letter-spacing: -5px;
-    font-weight: bold;
+    // font-weight: bold;
   }
   ul li {
     line-height: 36px;
@@ -166,8 +165,11 @@ body {
     }
     .match-details {
       font-size: 14px;
-      line-height: 14px;
+      line-height: 20px;
       color: #999;
+      p {
+        margin-bottom: 4px;
+      }
     }
     .match-buttons {
       display: inline-block;
@@ -195,11 +197,44 @@ body {
   height: 5%;
   .box-match {
     margin-bottom: 20px;
+    .match-details-date {
+      position: absolute;
+      left: 20px;
+      top: -10px;
+      font-size: 48px;
+      line-height: 48px;
+      text-align: center;
+      font-style: italic;
+      background-color: #999;
+      color: #fff;
+      padding: 10px;
+      hr {
+        margin: 2px;
+        border-top: 0;
+      }
+      .match-details-date-month, .match-details-date-time {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .match-details-date-time {
+        margin-top: 4px;
+      }
+    }
+    .match-details {
+      padding-left: 100px;
+      margin-bottom: 30px;
+      font-size: 14px;
+      line-height: 20px;
+      color: #999;
+      p {
+        margin-bottom: 4px;
+      }
+    }
     .match-teams {
-      display: block;
-      margin-bottom: 24px;
-      font-size: 36px;
-      line-height: 56px;
+      margin-bottom: -20px;
+      font-size: 48px;
+      line-height: 82px;
+      background-color: #f7f7f7;
       color: #777;
       text-align: center;
       .team1 {
@@ -216,11 +251,18 @@ body {
         float: right;
         width: 46%;
       }
-    }
-    .match-details {
-      font-size: 14px;
-      line-height: 14px;
-      color: #999;
+      .match-teams-button {
+        display: block;
+        line-height: 32px;
+        font-size: 14px;
+        border-top: 2px solid white;
+        &:hover {
+          background-color: #ddd;
+          a:hover {
+            text-decoration: none;
+          }
+        }
+      }
     }
   }
   .match-map {
@@ -229,24 +271,22 @@ body {
       position: relative;
     }
     .match-map-buttons {
-      display: block;
       text-align: center;
-      // a {
-      //   color: #777 !important;
-      //   &:hover {
-      //     text-decoration: none;
-      //   }
-      // }
       .match-map-button-left {
         display: inline-block;
         float: left;
-        width: 50%;
+        width: 49.89%;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
-      .match-map-buttons-right {
+      .match-map-button-right {
         display: inline-block;
         float: right;
-        width: 50%;
-        color: #777;
+        width: 49.89%;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
     }
   }
