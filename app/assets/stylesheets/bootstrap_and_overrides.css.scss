@@ -302,3 +302,52 @@ body {
     }
   }
 }
+
+.box-back {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  padding: 0;
+  width: 40px;
+  background-color: #222222;
+  color: #999;
+  img {
+    width: 100%;
+  }
+}
+
+.box-comment-form {
+  position: fixed;
+  top: 60px;
+  left: 6%;
+  padding: 0;
+  width: 34%;
+  height: 120px;
+  form {
+    textarea {
+      padding: 0;
+      display: block;
+      width: auto;
+      height: 120px;
+    }
+  }
+}
+
+.box-comments {
+  margin-top: 200px;
+}
+
+.box-comment {
+  margin-bottom: 20px;
+  .box-comment-content {
+    margin-bottom: 8px;
+  }
+  hr {
+    margin: 4px;
+  }
+  .box-comment-details {
+    font-style: italic;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}

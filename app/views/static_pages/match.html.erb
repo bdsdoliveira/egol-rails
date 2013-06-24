@@ -1,21 +1,25 @@
 
+<div class="box box-back">
+  <%= link_to image_tag('expander-left-inv.png'), :back %>
+</div>
+
 <div class="container-absolute-left">
   <% if signed_in? %>
-    <div class="box">
+    <div class="box-comment-form">
       <%= form_for(@comment) do |f| %>
-        <%= f.text_area :content, placeholder: "Compose your message...", rows: "4" %>
+        <%= f.text_area :content, placeholder: "Compose your message..." %>
         <%= hidden_field :comment, :match_id, value: @match.id %>
         <%= f.submit "Post", class: "btn btn-primary comment-submit" %>
       <% end %>
     </div>
-    <% if notice %>
-      <div class="alert alert-error">
-        <%= notice %>
-      </div>
-    <% end %>
-    <br />
+  <% elsif @comments.empty? %>
+    <div class="title">
+      Be the first to leave a comment.
+      <br /><br />
+      <%= link_to 'Sign up now!', signup_path %>
+    </div>
   <% end %>
-  <div class="box-comment">
+  <div class="box-comments">
     <%= render partial: 'comments/comment', collection: @comments %>
   </div>
 </div>
@@ -35,7 +39,7 @@
       data: $(this).serialize(),
       type: 'post',
       success: function(html) {
-        $('.box-comment').html(html);
+        $('.box-comments').html(html);
         $('#comment_content').val('');
       }
     });
