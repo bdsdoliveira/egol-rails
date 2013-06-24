@@ -1,0 +1,44 @@
+
+<div class="container-absolute-left">
+  <% if signed_in? %>
+    <div class="box">
+      <%= form_for(@comment) do |f| %>
+        <%= f.text_area :content, placeholder: "Compose your message...", rows: "4" %>
+        <%= hidden_field :comment, :match_id, value: @match.id %>
+        <%= f.submit "Post", class: "btn btn-primary comment-submit" %>
+      <% end %>
+    </div>
+    <% if notice %>
+      <div class="alert alert-error">
+        <%= notice %>
+      </div>
+    <% end %>
+    <br />
+  <% end %>
+  <div class="box-comment">
+    <%= render partial: 'comments/comment', collection: @comments %>
+  </div>
+</div>
+
+<div class="container-fixed-right" id="match_content" >
+  <%= render "match_brief", id: @match.id %>
+</div>
+
+<script type="text/javascript">
+  $(window).on('load resize', function() {
+    $('.match-map-google').height($(this).height() - 375);
+    map.panTo(marker.getPosition());
+  });
+  $('#new_comment').submit(function() {
+    $.ajax({
+      url: $(this).attr('action'),
+      data: $(this).serialize(),
+      type: 'post',
+      success: function(html) {
+        $('.box-comment').html(html);
+        $('#comment_content').val('');
+      }
+    });
+    return false;
+  });
+</script>

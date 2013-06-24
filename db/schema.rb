@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620131201) do
+ActiveRecord::Schema.define(:version => 20130622154922) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(:version => 20130620131201) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "match_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["match_id", "user_id", "created_at"], :name => "index_comments_on_match_id_and_user_id_and_created_at"
 
   create_table "matches", :force => true do |t|
     t.datetime "date_and_time"

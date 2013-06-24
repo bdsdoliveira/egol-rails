@@ -2,6 +2,7 @@ EhGol::Application.routes.draw do
   get "home", controller: 'static_pages'
   get "help", controller: 'static_pages'
   get "about", controller: 'static_pages'
+  get 'match_brief', controller: 'static_pages'
   get 'match', controller: 'static_pages'
 
   resources :stages
@@ -14,6 +15,8 @@ EhGol::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  resources :comments, only: [:create, :destroy]
 
   # Mobile access to list of matches
   match '/m', to: 'matches#m'

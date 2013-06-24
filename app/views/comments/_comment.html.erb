@@ -1,0 +1,6 @@
+
+<div class="box">
+  <%= link_to 'Delete', comment, method: :delete, class: "btn btn-small btn-danger", data: { confirm: 'Are you sure?' } if current_user?(comment.user) %>
+  <%= comment.user.name %>: <%= comment.content %>
+</div>
+<br />

@@ -20,7 +20,7 @@
         <%= link_to image_tag('twitter.png', class: "match-button-share"), "http://twitter.com/intent/tweet?text=#{message}&url=#{url}", :target => "_blank" %>
         <%= link_to image_tag('facebook.png', class: "match-button-share"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
         <%= link_to image_tag('gplus.png', class: "match-button-share"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
-        <%= link_to image_tag('expander.png', class: "match-button-expander", id: "match_#{match.id + 1}"), match_path(id: match.id) %>
+        <%= link_to image_tag('expander.png', class: "match-button-expander", id: "match_#{match.id + 1}"), match_brief_path(id: match.id) %>
       </div>
     </div>
   <% end %>
@@ -48,7 +48,7 @@
 
 <script type="text/javascript">
   $(window).on('load resize', function() {
-    $('.match-map-google').height($(this).height() - 375);
+    $('.match-map-google').height($(this).height() - 383);
     map.panTo(marker.getPosition());
   });
   $('.match-button-expander').click(function() {

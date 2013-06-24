@@ -19,7 +19,7 @@
     <div class="team1"><%= @match.team1.name ? @match.team1.name : @match.team1.code %></div>
     <div class="versus">×</div>
     <div class="team2"><%= @match.team2.name ? @match.team2.name : @match.team2.code %></div>
-    <div class="match-teams-button"><%= link_to "Click here to see more", "#" %></div>
+    <div class="match-teams-button"><%= link_to "Click here to see more", match_path(id: @match.id) %></div>
   </div>
 </div>
 
@@ -49,5 +49,5 @@
     map: map,
     title: '<%= @match.city.stadium %> – <%= @match.city.name %>'
   });
-  $('.match-map-google').height($(window).height() - 375);
+  $('.match-map-google').height($(window).height() - 383);
 </script>

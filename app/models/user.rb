@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
 
+  has_many :comments, dependent: :destroy
+
   validates :name, presence: true,
                    length: { maximum: 50 }
   validates :email, presence: true,

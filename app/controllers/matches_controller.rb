@@ -57,14 +57,4 @@ class MatchesController < ApplicationController
 
     redirect_to matches_url
   end
-
-  private
-
-    def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
-    end
-
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
 end

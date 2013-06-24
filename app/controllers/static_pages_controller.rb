@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
-
-  before_filter :label_colors, only: [:home, :match]
+  before_filter :label_colors, only: [:home, :match_brief, :match]
 
   def label_colors
     @LABEL_COLORS = {
@@ -17,9 +16,15 @@ class StaticPagesController < ApplicationController
     @matches = Match.all
   end
 
+  def match_brief
+    @match = Match.find(params[:id])
+    render partial: 'match_brief'
+  end
+
   def match
     @match = Match.find(params[:id])
-    render partial: 'match'
+    @comments = Comment.find_all_by_match_id(params[:id])
+    @comment = current_user.comments.build if signed_in?
   end
 
   def help
