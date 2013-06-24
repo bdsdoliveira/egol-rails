@@ -1,30 +1,38 @@
 
-<div class="box box-left">
-  <div class="box-content">
-    <div class="title"><%= @user.name %></div>
-    <%= link_to image_tag('http://placehold.it/300x300&text=PHOTO'), edit_user_path(@user) %>
+<div class="box box-back">
+  <%= link_to image_tag('expander-left-inv.png'), root_path %>
+</div>
+
+<div class="container-fixed-left">
+  <div class="box">
+    <div class="box-content">
+      <div class="title"><%= @user.name %></div>
+      <%= link_to image_tag('http://placehold.it/300x300&text=PHOTO'), edit_user_path(@user) %>
+    </div>
   </div>
 </div>
 
-<div class="box box-right">
-  <% if notice %>
-    <div class="alert alert-success">
-      <p><%= notice %></p>
-    </div>
-    <br />
-  <% end %>
-  <div class="box-details">
-    <ul class="unstyled">
-      <h5 class="nav-header">Credentials</h5>
-      <li><b>Name:</b> <%= @user.name %></li>
-      <li><b>Email:</b> <%= @user.email %></li>
-      <h5 class="nav-header">Password</h5>
-      <li><b>Password:</b> <%= @user.password_digest %></li>
-      <h5 class="nav-header">Photos</h5>
-      <li><b>...</b></li>
+<div class="container-absolute-right">
+  <div class="box">
+    <% if notice %>
+      <div class="alert alert-success">
+        <p><%= notice %></p>
+      </div>
       <br />
-      <%= link_to 'Edit details', edit_user_path(@user), class: "btn btn-small btn-success" %>
-      <%= link_to 'Delete account', @user, method: :delete, class: "btn btn-small btn-danger", data: { confirm: 'Are you sure you want to delete your account? (All your comments and marked favorites will also be deleted.)' } %>
-    </ul>
+    <% end %>
+    <div class="box-details">
+      <ul class="unstyled">
+        <h5 class="nav-header">Credentials</h5>
+        <li><b>Name:</b> <%= @user.name %></li>
+        <li><b>Email:</b> <%= @user.email %></li>
+        <h5 class="nav-header">Password</h5>
+        <li><b>Password:</b> <%= @user.password_digest %></li>
+        <h5 class="nav-header">Photos</h5>
+        <li><b>...</b></li>
+        <br />
+        <%= link_to 'Edit details', edit_user_path(@user), class: "btn btn-small btn-success" %>
+        <%= link_to 'Delete account', @user, method: :delete, class: "btn btn-small btn-danger", data: { confirm: 'Are you sure you want to delete your account? (All your comments and marked favorites will also be deleted.)' } %>
+      </ul>
+    </div>
   </div>
 </div>

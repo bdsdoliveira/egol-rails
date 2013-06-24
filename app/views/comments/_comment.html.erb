@@ -5,7 +5,10 @@
   </div>
   <hr>
   <div class="box-comment-details">
-    <%= comment.user.name %> ·
-    <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } if current_user?(comment.user) %>
+    <b><%= comment.user.name %></b> ·
+    <%= time_ago_in_words comment.created_at.localtime %> ago
+    <% if current_user?(comment.user) %>
+    	· <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } if current_user?(comment.user) %>
+    <% end %>
   </div>  
 </div>

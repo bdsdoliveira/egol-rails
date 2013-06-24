@@ -1,16 +1,33 @@
 
-<div class="box box-center">
-  <div class="box-content">
-    <div class="title">Editing credentials</div>
-    <%= render 'form' %>
-  </div>
-  <% if @user.errors.any? %>
-    <div class="alert alert-error">
+<div class="container-absolute-left">
+  <div class="box">
+    <div class="welcome welcome-signup">
+    <div class="title">Caution while editing your account information...</div>
       <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %>.</li>
-        <% end %>
+        <li>If you're changing your email, we will stop sending any info regarding your account or preferences to the previously registered email.</li>
+        <li>Your email is not shared with anyone, it sits only inside our databases to give us a way of managing accounts and getting in contact with you.</li>
+        <li>By changing your name, all of your previous and future comments will show this new name</li>
+        <li>You might have to sign in with your new credentials through the mobile app.</li>
+        <li>Your password should be contain letters, numbers and special characters, to decrease chances of someone getting accessing to your account.</li>
       </ul>
     </div>
-  <% end %>
+  </div>
+</div>
+
+<div class="container-fixed-right">
+  <div class="box">
+    <div class="box-content">
+      <div class="title">Editing credentials</div>
+      <%= render 'form' %>
+    </div>
+    <% if @user.errors.any? %>
+      <div class="alert alert-error">
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %>.</li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </div>

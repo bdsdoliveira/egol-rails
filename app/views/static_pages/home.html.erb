@@ -1,32 +1,32 @@
 
 <div class="container-absolute-left">
   <% @matches.each do |match| %>
-    <div class="box box-match">
-      <div class="match-teams">
+    <div class="box box-match-list">
+      <div class="match-list-teams">
         <div class="team1"><%= match.team1.name ? match.team1.name : match.team1.code %></div>
         <div class="versus">×</div>
         <div class="team2"><%= match.team2.name ? match.team2.name : match.team2.code %></div>
       </div>
-      <div class="match-details">
+      <div class="match-list-details">
         <p>Date: <%= match.date_and_time %></p>
         <p>City: <%= match.city.name %></p>
         <p>Place: <%= match.city.stadium %></p>
         <p><span class="label <%= @LABEL_COLORS[match.stage.id] %>"><%= match.stage.name %></span></p>
       </div>
       <hr>
-      <div class="match-buttons">
+      <div class="match-list-buttons">
         <% message = "Hey, I'll be at #{match.city.stadium} in #{match.city.name} to watch the #{match.team1.name ? match.team1.name : match.team1.code} × #{match.team2.name ? match.team2.name : match.team2.code} match!" %>
         <% url = "#{root_url}#match_#{match.id}" %>
-        <%= link_to image_tag('twitter.png', class: "match-button-share"), "http://twitter.com/intent/tweet?text=#{message}&url=#{url}", :target => "_blank" %>
-        <%= link_to image_tag('facebook.png', class: "match-button-share"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
-        <%= link_to image_tag('gplus.png', class: "match-button-share"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
-        <%= link_to image_tag('expander.png', class: "match-button-expander", id: "match_#{match.id + 1}"), match_brief_path(id: match.id) %>
+        <%= link_to image_tag('twitter.png', class: "match-list-button-share"), "http://twitter.com/intent/tweet?text=#{message}&url=#{url}", :target => "_blank" %>
+        <%= link_to image_tag('facebook.png', class: "match-list-button-share"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
+        <%= link_to image_tag('gplus.png', class: "match-list-button-share"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
+        <%= link_to image_tag('expander.png', class: "match-list-button-expander", id: "match_#{match.id + 1}"), match_brief_path(id: match.id) %>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="container-fixed-right" id="match_content" >
+<div class="container-fixed-right" id="match_brief" >
   <div class="box">
     <div class="box-content">
       <div class="welcome">
@@ -51,11 +51,11 @@
     $('.match-map-google').height($(this).height() - 383);
     map.panTo(marker.getPosition());
   });
-  $('.match-button-expander').click(function() {
+  $('.match-list-button-expander').click(function() {
     $.ajax({
       url: $(this).parent().attr('href'),
       success: function(html) {
-        $('#match_content').html(html);
+        $('#match_brief').html(html);
       }
     });
     return false;

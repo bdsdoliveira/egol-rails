@@ -71,35 +71,33 @@ body {
   padding: 20px;
   background-color: #fff;
   vertical-align: top;
+  margin-bottom: 20px;
 }
 
-.box-left {
-  display: inline-block;
+.container-absolute-left {
+  position: absolute;
   width: 34%;
   margin-right: 2%;
 }
 
-.box-right {
-  display: inline-block;
-  width: 54%;
+.container-fixed-right {
+  position: fixed;
+  width: 50%;
+  left: 42%;
   margin-left: 2%;
 }
 
-.box-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+.container-fixed-left {
+  position: fixed;
+  width: 34%;
+  margin-right: 2%;
 }
 
-.box-content {
-  padding: 0;
-  text-align: center;
-  margin-bottom: 12px;
-  .btn {
-    width: 80%;
-    max-width: 284px;
-  }
+.container-absolute-right {
+  position: absolute;
+  width: 50%;
+  left: 42%;
+  margin-left: 2%;
 }
 
 .box-details {
@@ -116,6 +114,16 @@ body {
   }
 }
 
+.box-content {
+  padding: 0;
+  text-align: center;
+  margin-bottom: 12px;
+  .btn {
+    width: 80%;
+    max-width: 284px;
+  }
+}
+
 .title {
   font-size: 48px;
   line-height: 56px;
@@ -123,6 +131,7 @@ body {
   margin-top: 12px;
   margin-bottom: 36px;
   font-style: italic;
+  text-align: center;
 }
 
 .welcome {
@@ -134,172 +143,214 @@ body {
   .brand {
     text-transform: uppercase;
     letter-spacing: -5px;
-    // font-weight: bold;
   }
   ul li {
     line-height: 36px;
     list-style-type: square;
+    margin-bottom: 6px;
   }
 }
 
-.container-absolute-left {
-  position: absolute;
-  width: 34%;
-  margin-right: 2%;
-  .box-match {
-    margin-bottom: 20px;
-    .match-teams {
-      display: block;
-      margin-bottom: 24px;
-      font-size: 36px;
-      line-height: 56px;
-      color: #777;
-      text-align: center;
-      .team1 {
-        display: inline-block;
-        float: left;
-        width: 43%;
-      }
-      .versus {
-        display: inline-block;
-        width: 1%;
-      }
-      .team2 {
-        display: inline-block;
-        float: right;
-        width: 46%;
-      }
-    }
-    .match-details {
-      font-size: 14px;
-      line-height: 20px;
-      color: #999;
-      p {
-        margin-bottom: 4px;
-      }
-    }
-    .match-buttons {
+.welcome-signup {
+  padding: 0;
+  font-style: italic;
+}
+
+.box-match-list {
+  margin-bottom: 20px;
+  .match-list-teams {
+    display: block;
+    margin-bottom: 24px;
+    font-size: 36px;
+    line-height: 56px;
+    color: #777;
+    text-align: center;
+    .team1 {
       display: inline-block;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      .match-button-share {
-        float: center;
-        margin-right: 8px;
-        max-width: 10%;
-      }
-      .match-button-expander {
-        float: right;
-        max-width: 10%;
-      }
+      float: left;
+      width: 43%;
+    }
+    .versus {
+      display: inline-block;
+      width: 1%;
+    }
+    .team2 {
+      display: inline-block;
+      float: right;
+      width: 46%;
+    }
+  }
+  .match-list-details {
+    font-size: 14px;
+    line-height: 20px;
+    color: #999;
+    p {
+      margin-bottom: 4px;
+    }
+  }
+  .match-list-buttons {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    .match-list-button-share {
+      float: left;
+      margin-right: 8px;
+      min-width: 40px;
+      max-width: 10%;
+    }
+    .match-list-button-expander {
+      float: right;
+      min-width: 40px;
+      max-width: 10%;
     }
   }
 }
 
-.container-fixed-right {
-  position: fixed;
-  width: 50%;
-  left: 42%;
-  margin-left: 2%;
-  height: 5%;
-  .box-match {
-    margin-bottom: 20px;
-    .match-details-date {
-      position: absolute;
-      left: 20px;
-      top: -10px;
-      font-size: 48px;
-      line-height: 48px;
-      text-align: center;
-      font-style: italic;
-      background-color: #999;
-      color: #fff;
-      padding: 10px;
-      hr {
-        margin: 2px;
-        border-top: 0;
-      }
-      .match-details-date-month, .match-details-date-time {
-        font-size: 14px;
-        line-height: 16px;
-      }
-      .match-details-date-time {
-        margin-top: 4px;
-      }
+.box-match-brief {
+  margin-bottom: 20px;
+  .match-brief-details-date {
+    position: absolute;
+    left: 20px;
+    top: -10px;
+    font-size: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-style: italic;
+    background-color: #999;
+    color: #fff;
+    padding: 10px;
+    hr {
+      margin: 2px;
+      border-top: 0;
     }
-    .match-details {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      right: 20px;
-      padding-left: 100px;
+    .match-brief-details-date-month, .match-brief-details-date-time {
       font-size: 14px;
-      line-height: 20px;
-      color: #999;
-      p {
-        margin-bottom: 4px;
-      }
+      line-height: 16px;
     }
-    .match-teams {
-      margin-top: 106px;
-      margin-bottom: -20px;
-      font-size: 48px;
-      line-height: 82px;
-      background-color: #f7f7f7;
-      color: #777;
-      text-align: center;
-      .team1 {
-        display: inline-block;
-        float: left;
-        width: 43%;
-      }
-      .versus {
-        display: inline-block;
-        width: 1%;
-      }
-      .team2 {
-        display: inline-block;
-        float: right;
-        width: 46%;
-      }
-      .match-teams-button {
-        display: block;
-        line-height: 32px;
-        font-size: 14px;
-        border-top: 2px solid white;
-        &:hover {
-          background-color: #ddd;
-          a:hover {
-            text-decoration: none;
-          }
+    .match-brief-details-date-time {
+      margin-top: 4px;
+    }
+  }
+  .match-brief-details {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    padding-left: 100px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #999;
+    p {
+      margin-bottom: 4px;
+    }
+  }
+  .match-brief-teams {
+    margin-top: 106px;
+    margin-bottom: -20px;
+    font-size: 48px;
+    line-height: 82px;
+    background-color: #f7f7f7;
+    color: #777;
+    text-align: center;
+    .team1 {
+      display: inline-block;
+      float: left;
+      width: 43%;
+    }
+    .versus {
+      display: inline-block;
+      width: 1%;
+    }
+    .team2 {
+      display: inline-block;
+      float: right;
+      width: 46%;
+    }
+    .match-brief-teams-button {
+      display: block;
+      line-height: 32px;
+      font-size: 14px;
+      border-top: 2px solid white;
+      &:hover {
+        background-color: #ddd;
+        a:hover {
+          text-decoration: none;
         }
       }
     }
   }
-  .match-map {
-    .match-map-google {
-      height: 240px;
-      position: relative;
+}
+
+.match-map {
+  .match-map-google {
+    height: 240px;
+    position: relative;
+  }
+  .match-map-buttons {
+    text-align: center;
+    .match-map-button-left {
+      display: inline-block;
+      float: left;
+      width: 49.89%;
+      padding: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
-    .match-map-buttons {
-      text-align: center;
-      .match-map-button-left {
-        display: inline-block;
-        float: left;
-        width: 49.89%;
-        padding: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-      .match-map-button-right {
-        display: inline-block;
-        float: right;
-        width: 49.89%;
-        padding: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
+    .match-map-button-right {
+      display: inline-block;
+      float: right;
+      width: 49.89%;
+      padding: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
+  }
+}
+
+.box-match-comment {
+  margin-bottom: 20px;
+  .match-comment-share {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    .match-comment-share-button {
+      display: inline-block;
+      margin-right: 8px;
+      min-width: 40px;
+      max-width: 10%;
+    }
+  }
+  .box-comment-form {
+    margin-bottom: 0;
+    form, .input-append {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.container-match-comment-empty {
+  padding: 50px;
+  font-size: 36px;
+  line-height: 42px;
+  color: #777;
+  font-style: italic;
+}
+
+.box-comment {
+  margin-bottom: 20px;
+  .box-comment-content {
+    margin-bottom: 8px;
+  }
+  hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .box-comment-details {
+    font-style: italic;
+    font-size: 12px;
+    line-height: 14px;
   }
 }
 
@@ -313,41 +364,5 @@ body {
   color: #999;
   img {
     width: 100%;
-  }
-}
-
-.box-comment-form {
-  position: fixed;
-  top: 60px;
-  left: 6%;
-  padding: 0;
-  width: 34%;
-  height: 120px;
-  form {
-    textarea {
-      padding: 0;
-      display: block;
-      width: auto;
-      height: 120px;
-    }
-  }
-}
-
-.box-comments {
-  margin-top: 200px;
-}
-
-.box-comment {
-  margin-bottom: 20px;
-  .box-comment-content {
-    margin-bottom: 8px;
-  }
-  hr {
-    margin: 4px;
-  }
-  .box-comment-details {
-    font-style: italic;
-    font-size: 12px;
-    line-height: 14px;
   }
 }

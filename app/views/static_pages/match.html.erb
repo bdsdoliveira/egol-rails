@@ -4,19 +4,33 @@
 </div>
 
 <div class="container-absolute-left">
-  <% if signed_in? %>
-    <div class="box-comment-form">
-      <%= form_for(@comment) do |f| %>
-        <%= f.text_area :content, placeholder: "Compose your message..." %>
-        <%= hidden_field :comment, :match_id, value: @match.id %>
-        <%= f.submit "Post", class: "btn btn-primary comment-submit" %>
-      <% end %>
+  <div class="box box-match-comment">
+    <div class="match-comment-share">
+      <% message = "Hey, I'll be at #{@match.city.stadium} in #{@match.city.name} to watch the #{@match.team1.name ? @match.team1.name : @match.team1.code} × #{@match.team2.name ? @match.team2.name : @match.team2.code} @match!" %>
+      <% url = "#{root_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('twitter.png', class: "match-comment-share-button"), "http://twitter.com/intent/tweet?text=#{message}&url=#{url}", :target => "_blank" %>
+      <%= link_to image_tag('facebook.png', class: "match-comment-share-button"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
+      <%= link_to image_tag('gplus.png', class: "match-comment-share-button"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
     </div>
-  <% elsif @comments.empty? %>
-    <div class="title">
+    <% if signed_in? %>
+      <hr>
+      <div class="box-comment-form">
+        <%= form_for(@comment) do |f| %>
+          <div class="input-append">
+            <%= f.text_field :content, placeholder: "Compose your message..." %>
+            <%= hidden_field :comment, :match_id, value: @match.id %>
+            <%= f.submit "Post", class: "btn btn-primary comment-submit" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if @comments.empty? %>
+    <div class="container-match-comment-empty">
       Be the first to leave a comment.
-      <br /><br />
-      <%= link_to 'Sign up now!', signup_path %>
+      <% if !signed_in? %>
+        <%= link_to 'Sign up now!', signup_path %>
+      <% end %>
     </div>
   <% end %>
   <div class="box-comments">
@@ -25,12 +39,61 @@
 </div>
 
 <div class="container-fixed-right" id="match_content" >
-  <%= render "match_brief", id: @match.id %>
+  <div class="box box-match-brief">
+    <div class="match-brief-details-date">
+      <div class="match-brief-details-date-month">
+        <%= @match.date_and_time.strftime("%B") %>
+      </div>
+      <hr>
+      <%= @match.date_and_time.day %>
+      <div class="match-brief-details-date-time">
+        <i class="icon-time icon-white"></i> <%= @match.date_and_time.strftime('%H:%M') %>
+      </div>
+    </div>
+    <div class="match-brief-details">
+      <p>City: <%= @match.city.name %></p>
+      <p>Place: <%= @match.city.stadium %> (<%= @match.city.stadium_alternative %>)</p>
+      <p><span class="label <%= @LABEL_COLORS[@match.stage.id] %>"><%= @match.stage.name %></span></p>
+    </div>
+    <div class="match-brief-teams">
+      <div class="team1"><%= @match.team1.name ? @match.team1.name : @match.team1.code %></div>
+      <div class="versus">×</div>
+      <div class="team2"><%= @match.team2.name ? @match.team2.name : @match.team2.code %></div>
+    </div>
+  </div>
+
+  <div class="match-map">
+    <div class="match-map-google" id="match_map_google"></div>
+    <div class="match-map-buttons">
+        <div class="box match-map-button-left">
+          <i class="icon-map-marker"></i>
+          <%= link_to 'Open in Google Maps'.html_safe, "http://maps.google.com/maps?ll=#{@match.city.latitude},#{@match.city.longitude}", target: "_blank" %>
+        </div>
+        <div class="box match-map-button-right">
+          <i class="icon-road"></i>
+          <%= link_to 'Get directions'.html_safe, "http://maps.google.com/maps?daddr=#{@match.city.latitude},#{@match.city.longitude}", target: "_blank" %>
+        </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
+  var mapOptions = {
+    center: new google.maps.LatLng(<%= @match.city.latitude %>, <%= @match.city.longitude %>),
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("match_map_google"), mapOptions);
+  var marker = new google.maps.Marker({
+    position: mapOptions["center"],
+    map: map,
+    title: '<%= @match.city.stadium %> – <%= @match.city.name %>'
+  });
+  $('.match-map-google').height($(window).height() - 383 + 34);
+  $('#comment_content').width($('.box-comment-form').width() - 68);
   $(window).on('load resize', function() {
-    $('.match-map-google').height($(this).height() - 375);
+    $('#comment_content').width($('.box-comment-form').width() - 68).slide();
+    $('.match-map-google').height($(this).height() - 383 + 34);
     map.panTo(marker.getPosition());
   });
   $('#new_comment').submit(function() {
@@ -39,6 +102,7 @@
       data: $(this).serialize(),
       type: 'post',
       success: function(html) {
+        $('.container-match-comment-empty').remove();
         $('.box-comments').html(html);
         $('#comment_content').val('');
       }

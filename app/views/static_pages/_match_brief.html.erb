@@ -1,25 +1,25 @@
 
-<div class="box box-match">
-  <div class="match-details-date">
-    <div class="match-details-date-month">
+<div class="box box-match-brief">
+  <div class="match-brief-details-date">
+    <div class="match-brief-details-date-month">
       <%= @match.date_and_time.strftime("%B") %>
     </div>
     <hr>
     <%= @match.date_and_time.day %>
-    <div class="match-details-date-time">
+    <div class="match-brief-details-date-time">
       <i class="icon-time icon-white"></i> <%= @match.date_and_time.strftime('%H:%M') %>
     </div>
   </div>
-  <div class="match-details">
+  <div class="match-brief-details">
     <p>City: <%= @match.city.name %></p>
     <p>Place: <%= @match.city.stadium %> (<%= @match.city.stadium_alternative %>)</p>
     <p><span class="label <%= @LABEL_COLORS[@match.stage.id] %>"><%= @match.stage.name %></span></p>
   </div>
-  <div class="match-teams">
+  <div class="match-brief-teams">
     <div class="team1"><%= @match.team1.name ? @match.team1.name : @match.team1.code %></div>
     <div class="versus">×</div>
     <div class="team2"><%= @match.team2.name ? @match.team2.name : @match.team2.code %></div>
-    <div class="match-teams-button"><%= link_to "Click here to see more", match_path(id: @match.id) %></div>
+    <div class="match-brief-teams-button"><%= link_to "Click here to see more", match_path(id: @match.id) %></div>
   </div>
 </div>
 
