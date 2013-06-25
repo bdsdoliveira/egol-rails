@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to root_url
+    render nothing: true
   end
 
   private
