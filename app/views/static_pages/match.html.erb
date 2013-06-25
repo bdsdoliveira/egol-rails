@@ -29,6 +29,7 @@
     <div class="container-match-comment-empty">
       Be the first to leave a comment.
       <% if !signed_in? %>
+        <br /><br />
         <%= link_to 'Sign up now!', signup_path %>
       <% end %>
     </div>
