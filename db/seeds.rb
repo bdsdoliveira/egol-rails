@@ -34,7 +34,7 @@ City.create([{
   },{
     name: "Cuiabá",
     stadium: "Arena Pantanal",
-    stadium_alternative: "----",
+    stadium_alternative: "Antigo Estádio Governador José Fragelli",
     address: "Avenida Oito de Abril – Cuiabá, Mato Grosso, Brazil",
     timezone: "GMT-4",
     latitude: "-15.603056",
@@ -49,9 +49,9 @@ City.create([{
     longitude: "-43.970833"
   },{
     name: "Recife",
-    stadium: "Arena Pernambuco",
+    stadium: "Itaipava Arena Pernambuco",
     stadium_alternative: "Arena Cidade da Copa",
-    address: "###############, – São Lourenço da Mata, Pernambuco, Brazil",
+    address: "BR 408 – São Lourenço da Mata, Pernambuco, Brazil",
     timezone: "GMT-3",
     latitude: "-8.04",
     longitude: "-35.008056"
@@ -66,7 +66,7 @@ City.create([{
   },{
     name: "Manaus",
     stadium: "Arena Amazônia",
-    stadium_alternative: "----",
+    stadium_alternative: "Antigo Estádio Vivaldo Lima",
     address: "Av. Djalma Batista, 3637, Flores – Manaus, Amazônia, Brazil",
     timezone: "GMT-4",
     latitude: "-3.083056",
@@ -75,7 +75,7 @@ City.create([{
     name: "Brasília",
     stadium: "Estádio Nacional",
     stadium_alternative: "Estádio Nacional Mané Garrincha",
-    address: "###############",
+    address: "Srpn-estádio Mané Garrincha, Asa Norte – Brasília, Distrito Federal, Brazil",
     timezone: "GMT-3",
     latitude: "-15.7835",
     longitude: "-47.899164"

@@ -1,6 +1,6 @@
 
 <div class="box box-back">
-  <%= link_to image_tag('expander-left-inv.png'), :back %>
+  <%= link_to image_tag('expander-left-inv.png'), root_path %>
 </div>
 
 <div class="container-absolute-left">
@@ -97,31 +97,35 @@
     map.panTo(marker.getPosition());
   });
   $('#new_comment').submit(function() {
-    $.ajax({
-      url: $(this).attr('action'),
-      data: $(this).serialize(),
-      type: 'post',
-      success: function(html) {
-        $('.container-match-comment-empty').fadeOut(150).remove();
-        $('.box-comments').fadeOut(150, function() {
-          $(this).fadeIn(150).html(html);
-        });
-        $('#comment_content').val('');
-      }
-    });
+    if ($('#comment_content').val() != "") {
+      $.ajax({
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        type: 'post',
+        success: function(html) {
+          $('.container-match-comment-empty').fadeOut(150);
+          $('.box-comments').fadeOut(150, function() {
+            $(this).fadeIn(150).html(html);
+          });
+          $('#comment_content').val('');
+        }
+      });
+    }
     return false;
   });
   $('.box-comments').on('click', '#delete_comment', function() {
-    var to_remove = $(this).parents('.box-comment')
-    $.ajax({
-      url: $(this).attr('href'),
-      type: 'delete',
-      success: function(html) {
-        to_remove.fadeOut(300, function() {
-          $(this).remove();
-        });
-      }
-    });
+    if (confirm('Are you sure?')) {
+      var to_remove = $(this).parents('.box-comment');
+      $.ajax({
+        url: $(this).attr('href'),
+        type: 'delete',
+        success: function(html) {
+          to_remove.hide(300, function() {
+            $(this).remove();
+          });
+        }
+      });
+    }
     return false;
   });
 </script>
