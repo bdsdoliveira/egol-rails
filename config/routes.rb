@@ -18,9 +18,6 @@ EhGol::Application.routes.draw do
 
   resources :comments, only: [:create, :destroy]
 
-  # Mobile access to list of matches
-  match '/m', to: 'matches#m'
-
   root to: 'static_pages#home'
 
   # The priority is based upon order of creation:

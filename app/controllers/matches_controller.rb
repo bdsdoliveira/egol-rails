@@ -2,19 +2,6 @@ class MatchesController < ApplicationController
   before_filter :signed_in_user
   before_filter :admin_user
 
-  def m
-    @matches = Match.all.each do |match|
-      match['city_'] = match.city.name
-      match['stage_'] = match.stage.name
-      match['team_1'] = match.team1.name
-      match['team_2'] = match.team2.name
-      match['stadium'] = match.city.stadium
-      match['latitude'] = match.city.latitude
-      match['longitude'] = match.city.longitude
-    end
-    render json: @matches
-  end
-
   def index
     @matches = Match.all
   end

@@ -14,6 +14,19 @@ class StaticPagesController < ApplicationController
 
   def home
     @matches = Match.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @matches,
+        only: [:id, :date_and_time, :score_team1, :score_team2],
+        include: {
+          city: { only: [:name, :stadium, :latitude, :longitude] },
+          stage: { only: [:name] },
+          team1: { only: [:name, :code] },
+          team2: { only: [:name, :code] }
+        }
+      }
+    end
   end
 
   def match_brief
