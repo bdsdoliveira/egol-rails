@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 body {
   background-color: rgba(243,243,243,0.998);
@@ -35,6 +36,10 @@ body {
   height: 30px !important;
   margin: 5px 9px !important;
   border-left-color: #555555 !important;
+}
+
+.navbar, .box, .match-map {
+  box-shadow: 0 2px 12px -2px #999;
 }
 
 .navbar {
@@ -256,16 +261,16 @@ body {
     .team1 {
       display: inline-block;
       float: left;
-      width: 43%;
+      width: 40%;
     }
     .versus {
       display: inline-block;
-      width: 1%;
+      width: 10%;
     }
     .team2 {
       display: inline-block;
       float: right;
-      width: 46%;
+      width: 40%;
     }
     .match-brief-teams-button {
       display: block;
@@ -365,5 +370,92 @@ body {
   color: #999;
   img {
     width: 100%;
+  }
+}
+
+
+
+/* Responsive layout */
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .navbar-fixed-top {
+    position: fixed;
+    margin-left: 0;
+    margin-right: 0;
+    .navbar-inner {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .navbar-fixed-top {
+    position: fixed;
+    margin-left: 0;
+    margin-right: 0;
+    .navbar-inner {
+      padding: 0;
+    }
+  }
+  .container-absolute-left, .container-fixed-right,
+  .container-fixed-left, .container-absolute-right {
+    position: static;
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .box-match-brief {
+    .match-brief-details-date {
+      left: 30px;
+      top: 50px;
+    }
+    .match-brief-details {
+      top: 74px;
+      left: 108px;
+      right: 30px;
+      padding-left: 0;
+      margin-left: 8px;
+      vertical-align: top;
+    }
+    .match-brief-teams {
+      margin-top: 100px;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+  .match-map {
+    .match-map-google {
+      min-height: 100px;
+      height: 180px;
+      position: relative;
+    }
+    .match-map-buttons {
+      margin-bottom: 60px;
+    }
+  }
+  .box-back {
+    display: none;
+  }
+  i {
+    display: none !important;
+  }
+  .box-content .btn, .box-content .btn-large {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .box-match-list .match-list-button-expander {
+    display: none;
+  }
+  .box-match-list .match-list-button-expander-phone {
+    float: right;
+    min-width: 40px;
+    max-width: 10%;
   }
 }

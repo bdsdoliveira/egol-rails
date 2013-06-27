@@ -14,6 +14,8 @@
             <li><%= link_to '<i class="icon-info-sign"></i> About'.html_safe, "#" %></li>
           </ul>
         </li>
+      </ul>
+      <ul class="nav hidden-phone">
         <li><%= link_to '<i class="icon-star icon-white"></i> Favorites'.html_safe, "#" %></li>
         <li><%= link_to '<i class="icon-calendar icon-white"></i> Calendar'.html_safe, "#" %></li>
         <li><%= link_to '<i class="icon-align-left icon-white"></i> Tree'.html_safe, "#" %></li>
@@ -52,8 +54,7 @@
           </li>
         <% else %>
           <li><%= link_to '<i class="icon-ok-sign icon-white"></i> Sign in'.html_safe, signin_path %></li>
-          <li class="vertical-divider"></li>
-          <li><%= link_to '<i class="icon-exclamation-sign icon-white"></i> Sign up now!'.html_safe, signup_path %></li>
+          <li><%= link_to '<i class="icon-exclamation-sign icon-white"></i> Sign up now!'.html_safe, signup_path, class: "hidden-phone" %></li>
         <% end %>
       </ul>
     </div>

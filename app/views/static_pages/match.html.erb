@@ -3,42 +3,6 @@
   <%= link_to image_tag('expander-left-inv.png'), root_path %>
 </div>
 
-<div class="container-absolute-left">
-  <div class="box box-match-comment">
-    <div class="match-comment-share">
-      <% message = "Hey, I'll be at #{@match.city.stadium} in #{@match.city.name} to watch the #{@match.team1.name ? @match.team1.name : @match.team1.code} × #{@match.team2.name ? @match.team2.name : @match.team2.code} @match!" %>
-      <% url = "#{root_url}#match_#{@match.id}" %>
-      <%= link_to image_tag('twitter.png', class: "match-comment-share-button"), "http://twitter.com/intent/tweet?text=#{message}&url=#{url}", :target => "_blank" %>
-      <%= link_to image_tag('facebook.png', class: "match-comment-share-button"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
-      <%= link_to image_tag('gplus.png', class: "match-comment-share-button"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
-    </div>
-    <% if signed_in? %>
-      <hr>
-      <div class="box-comment-form">
-        <%= form_for(@comment) do |f| %>
-          <div class="input-append">
-            <%= f.text_field :content, placeholder: "Compose your message..." %>
-            <%= hidden_field :comment, :match_id, value: @match.id %>
-            <%= f.submit "Post", class: "btn btn-primary comment-submit" %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <% if @comments.empty? %>
-    <div class="container-match-comment-empty">
-      Be the first to leave a comment.
-      <% if !signed_in? %>
-        <br /><br />
-        <%= link_to 'Sign up now!', signup_path %>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="box-comments">
-    <%= render partial: 'comments/comment', collection: @comments %>
-  </div>
-</div>
-
 <div class="container-fixed-right" id="match_content" >
   <div class="box box-match-brief">
     <div class="match-brief-details-date">
@@ -78,6 +42,42 @@
   </div>
 </div>
 
+<div class="container-absolute-left">
+  <div class="box box-match-comment">
+    <div class="match-comment-share">
+      <% message = "Hey, I'll be at #{@match.city.stadium} in #{@match.city.name} to watch the #{@match.team1.name ? @match.team1.name : @match.team1.code} × #{@match.team2.name ? @match.team2.name : @match.team2.code} @match!" %>
+      <% url = "#{root_url}#match_#{@match.id}" %>
+      <%= link_to image_tag('twitter.png', class: "match-comment-share-button"), "http://twitter.com/intent/tweet?text=#{message}&url=#{url}", :target => "_blank" %>
+      <%= link_to image_tag('facebook.png', class: "match-comment-share-button"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
+      <%= link_to image_tag('gplus.png', class: "match-comment-share-button"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
+    </div>
+    <% if signed_in? %>
+      <hr>
+      <div class="box-comment-form">
+        <%= form_for(@comment) do |f| %>
+          <div class="input-append">
+            <%= f.text_field :content, placeholder: "Compose your message..." %>
+            <%= hidden_field :comment, :match_id, value: @match.id %>
+            <%= f.submit "Post", class: "btn btn-primary comment-submit" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if @comments.empty? %>
+    <div class="container-match-comment-empty">
+      Be the first to leave a comment.
+      <% if !signed_in? %>
+        <br /><br />
+        <%= link_to 'Sign up now!', signup_path %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="box-comments">
+    <%= render partial: 'comments/comment', collection: @comments %>
+  </div>
+</div>
+
 <script type="text/javascript">
   var mapOptions = {
     center: new google.maps.LatLng(<%= @match.city.latitude %>, <%= @match.city.longitude %>),
@@ -90,10 +90,10 @@
     map: map,
     title: '<%= @match.city.stadium %> – <%= @match.city.name %>'
   });
-  $('.match-map-google').height($(window).height() - 383 + 34);
+  if (window.innerWidth > 767) $('.match-map-google').height($(window).height() - 383 + 34);
   $('#comment_content').width($('.box-comment-form').width() - 68);
   $(window).on('load resize', function() {
-    $('.match-map-google').height($(window).height() - 383 + 34);
+    if (window.innerWidth > 767) $('.match-map-google').height($(window).height() - 383 + 34);
     $('#comment_content').animate({ width: $('.box-comment-form').width() - 68 }, 50);
     map.panTo(marker.getPosition());
   });

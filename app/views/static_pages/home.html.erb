@@ -21,12 +21,13 @@
         <%= link_to image_tag('facebook.png', class: "match-list-button-share"), "https://www.facebook.com/sharer/sharer.php?t=#{message}&u=#{url}", :target => "_blank" %>
         <%= link_to image_tag('gplus.png', class: "match-list-button-share"), "https://plus.google.com/share?url=#{url}", :target => "_blank" %>
         <%= link_to image_tag('expander.png', class: "match-list-button-expander", id: "match_#{match.id + 1}"), match_brief_path(id: match.id) %>
+        <%= link_to image_tag('expander.png', class: "match-list-button-expander-phone visible-phone", id: "match_#{match.id + 1}"), match_path(id: match.id) %>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="container-fixed-right" id="match_brief" >
+<div class="container-fixed-right hidden-phone" id="match_brief" >
   <div class="box">
     <div class="box-content">
       <div class="welcome">
