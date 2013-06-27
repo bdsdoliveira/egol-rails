@@ -38,6 +38,16 @@ class StaticPagesController < ApplicationController
     @match = Match.find(params[:id])
     @comments = Comment.find_all_by_match_id(params[:id])
     @comment = current_user.comments.build if signed_in?
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @match.comments,
+        only: [:id, :content, :created_at],
+        include: {
+          user: { only: [:name] }
+        }
+      }
+    end
   end
 
   def help
